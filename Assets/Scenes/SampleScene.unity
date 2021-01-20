@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f886fd31f8023c4f9ee7e124667141e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileSpeed: 0.5
+  tileSpeed: 0.8
   tile: {fileID: 6922382426741339915, guid: 2f8bb5d5e6707b641b561fd7f16eea91, type: 3}
   l_tile: []
 --- !u!4 &1007314343
@@ -375,9 +375,9 @@ GameObject:
   - component: {fileID: 1648106960}
   - component: {fileID: 1648106959}
   - component: {fileID: 1648106958}
-  - component: {fileID: 1648106957}
   - component: {fileID: 1648106956}
   - component: {fileID: 1648106961}
+  - component: {fileID: 1648106957}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -397,14 +397,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!60 &1648106957
 PolygonCollider2D:
@@ -431,16 +431,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.21875, y: 0.28125}
-      - {x: 0, y: 0.4375}
-      - {x: -0.125, y: 0.4375}
-      - {x: -0.5, y: 0.125}
-      - {x: -0.5, y: -0.25}
-      - {x: -0.27833593, y: -0.42551768}
-      - {x: 0.32140526, y: -0.42179352}
-      - {x: 0.3280434, y: -0.3050518}
-      - {x: 0.3094229, y: 0.0625}
-      - {x: 0.2930692, y: 0.16887951}
+    - - {x: -0.28125, y: 0.5}
+      - {x: -0.39382207, y: 0.30522037}
+      - {x: -0.37650466, y: -0.24005002}
+      - {x: -0.29676026, y: -0.3647036}
+      - {x: -0.21999614, y: -0.45632225}
+      - {x: 0.223308, y: -0.4563222}
+      - {x: 0.35043937, y: -0.39110047}
+      - {x: 0.34801278, y: 0.36499882}
+      - {x: 0.21875, y: 0.5}
 --- !u!114 &1648106958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,8 +452,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63bfd28d0837d664a9fe1bec9cec50df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 500
+  animator: {fileID: 0}
+  jumpForce: 7
   moveSpeed: 4
+  maxJumps: 2
+  debugMode: 1
 --- !u!212 &1648106959
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -494,7 +496,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1821804856100901084, guid: 232892f96e230d04dbd73daa04677f91,
+  m_Sprite: {fileID: 5528104230487031000, guid: 232892f96e230d04dbd73daa04677f91,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
