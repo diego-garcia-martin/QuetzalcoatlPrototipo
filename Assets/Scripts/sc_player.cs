@@ -8,18 +8,25 @@ public class sc_player : MonoBehaviour
     private Rigidbody2D r2d;
     private Transform tr;
     private int jumping;
-    public Animator animator;
+    private string currentAnim;
+    private Animator animator;
     public float jumpForce;
     public float moveSpeed;
     public int maxJumps;
     public bool debugMode;
 
+    private const string IDLE = "Anim_Quetzalcoatl_idle";
+    private const string RUN = "Anim_Quetzalcoatl_run";
+    private const string JUMP = "Anim_Quetzalcoatl_jump";
+
     void Start()
     {
+        currentAnim = "";
         r2d = GetComponent<Rigidbody2D>();
         tr = GetComponent<Transform>();
         animator = GetComponent<Animator>();
         jumping = 0;
+        changeAnimation(IDLE);
     }
 
     // Update is called once per frame
@@ -41,10 +48,9 @@ public class sc_player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(r2d.velocity.y <= 0)
+        if(collision.gameObject.tag == "Ground")
         {
             jumping = 0;
-            animator.SetBool("is_jumping", false);
         }
     }
 
@@ -52,16 +58,11 @@ public class sc_player : MonoBehaviour
     {
         if(r2d.velocity.x != 0)
         {
-            animator.SetBool("is_running", true);
+            changeAnimation(RUN);
             if(r2d.velocity.x < 0) tr.localScale = new Vector3(1, 1, 1);
             else tr.localScale = new Vector3(-1, 1, 1);
         }
-        else animator.SetBool("is_running", false);
-
-        if(r2d.velocity.y <= 0)
-        {
-            animator.SetBool("is_jumping", false);
-        }
+        else changeAnimation(IDLE);
     }
 
     private void updateMovement()
@@ -72,7 +73,7 @@ public class sc_player : MonoBehaviour
         {
             r2d.velocity = new Vector2( r2d.velocity.x, jumpForce);
             jumping++;
-            animator.SetBool("is_jumping", true);
+            changeAnimation(JUMP);
         }
 
         dirx = Input.acceleration.x * moveSpeed;
@@ -89,9 +90,15 @@ public class sc_player : MonoBehaviour
         r2d.velocity = new Vector2(dirx, r2d.velocity.y);
     }
 
+    private void changeAnimation(string newAnim)
+    {
+        if(currentAnim == newAnim) return;
+        animator.Play(newAnim);
+        currentAnim = newAnim;
+    }
+
     private void debugInfo()
     {
-        print("is_running: " + animator.GetBool("is_running").ToString());
-        print("is_jumping: " + animator.GetBool("is_jumping").ToString());
+        print("Debug Mode On");
     }
 }
