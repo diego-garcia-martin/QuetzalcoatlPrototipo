@@ -16,6 +16,10 @@ public class sc_tile_spawner : MonoBehaviour
     public int ProbablyFreeze;
     public int ProbablyExplosion;
     public int ProbablyFake;
+<<<<<<< HEAD
+=======
+    public float TileSpeed;
+>>>>>>> b460e7ee1b28d9efcd8219e1496a8464c27ad3e8
 
     /*Prefabs que se utilizaran*/
     public GameObject tileNormal;
