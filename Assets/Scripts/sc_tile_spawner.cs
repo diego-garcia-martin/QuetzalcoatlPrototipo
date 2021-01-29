@@ -136,7 +136,7 @@ public class sc_tile_spawner : MonoBehaviour
 
         //Populate screen
         float y = MIN_POS_IN_Y;
-        for (int p = 0; p <= POPULATION_TILES; p++)
+        for (int p = 0; p < POPULATION_TILES; p++)
         {
             InsertTile(Random.Range(MIN_POS_IN_X, MAX_POS_IN_X), y);
             y += 3f;
