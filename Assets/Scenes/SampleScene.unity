@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70138c0fca0625841bf27b2962a26216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TileSpeed: 0.5
   NivelDeDificultad: 0
   ProbablyNormal: 50
   ProbablyRock: 25
@@ -283,18 +284,17 @@ MonoBehaviour:
   ProbablyFreeze: 10
   ProbablyExplosion: 5
   ProbablyFake: 5
-  TileSpeed: 4
-  tileNormal: {fileID: 6922382426741339915, guid: 2f8bb5d5e6707b641b561fd7f16eea91,
+  tileNormal: {fileID: 2034722282803840650, guid: 2fbecc9dd0ceb9540bc15049050c82f5,
     type: 3}
-  tileRock: {fileID: 6922382426741339915, guid: 2550bab7e4b87d842ae267290ba50b5a,
+  tileRock: {fileID: 2034722282803840650, guid: 2fbecc9dd0ceb9540bc15049050c82f5,
     type: 3}
-  tileSpikes: {fileID: 6922382426741339915, guid: 2db020b7c545f3b40b373016e3d06149,
+  tileSpikes: {fileID: 2034722282803840650, guid: 2fbecc9dd0ceb9540bc15049050c82f5,
     type: 3}
-  tileFreeze: {fileID: 6922382426741339915, guid: 6902eca102875e542a9974c38bace677,
+  tileFreeze: {fileID: 2034722282803840650, guid: 2fbecc9dd0ceb9540bc15049050c82f5,
     type: 3}
-  tileExplosion: {fileID: 6922382426741339915, guid: 51bfd3caad7935649adddbc88c3ea491,
+  tileExplosion: {fileID: 2034722282803840650, guid: 2fbecc9dd0ceb9540bc15049050c82f5,
     type: 3}
-  tileFake: {fileID: 6922382426741339915, guid: 0d98e48e6d4281a41afb9be9ae50d9bb,
+  tileFake: {fileID: 2034722282803840650, guid: 2fbecc9dd0ceb9540bc15049050c82f5,
     type: 3}
 --- !u!4 &1166149248
 Transform:
@@ -499,3 +499,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0ba70b3091e4447bd66fce275e3c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  limitYmovement: 0

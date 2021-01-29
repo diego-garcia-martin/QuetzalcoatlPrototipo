@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1957694398}
   - component: {fileID: 1957694397}
   - component: {fileID: 8519252803914028966}
+  - component: {fileID: 910267866}
   m_Layer: 0
   m_Name: Pichoncin
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -1716678075
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8183242581305889515, guid: b330e72c7ec2160498da02aa050827be,
+  m_Sprite: {fileID: 8183242581305889515, guid: edb253d5ee77c774bb80d38f67e9ea27,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -151,7 +152,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &8519252803914028966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,3 +165,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95f30f57ea9f7a4e83a997316fe5be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &910267866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6822974493449894603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d0ba70b3091e4447bd66fce275e3c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limitYmovement: 1
