@@ -286,11 +286,11 @@ MonoBehaviour:
   ProbablyFake: 5
   tileNormal: {fileID: 2034722282803840650, guid: 2fbecc9dd0ceb9540bc15049050c82f5,
     type: 3}
-  tileRock: {fileID: 2034722282803840650, guid: 2fbecc9dd0ceb9540bc15049050c82f5,
+  tileRock: {fileID: 7441411029257636579, guid: b6fa2c2709b9426458ec3efe68c4bd68,
     type: 3}
   tileSpikes: {fileID: 2034722282803840650, guid: 2fbecc9dd0ceb9540bc15049050c82f5,
     type: 3}
-  tileFreeze: {fileID: 2034722282803840650, guid: 2fbecc9dd0ceb9540bc15049050c82f5,
+  tileFreeze: {fileID: 7441411029257636579, guid: b6fa2c2709b9426458ec3efe68c4bd68,
     type: 3}
   tileExplosion: {fileID: 2034722282803840650, guid: 2fbecc9dd0ceb9540bc15049050c82f5,
     type: 3}

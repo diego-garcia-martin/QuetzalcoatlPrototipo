@@ -104,12 +104,13 @@ public class sc_tile_spawner : MonoBehaviour
     {
         List<GameObject> temp_list = new List<GameObject>();
         int num_tiles = Random.Range(3, 5);
-        int num = Random.Range(1, 100);
+        int num;
         TypeTileStruct tempTile = new TypeTileStruct();
 
         //Hacemos un for con el numero de tiles a meter en este piso
         for (int index = 0; index < num_tiles; index++)
         {
+            num = Random.Range(1, 100);
             //Explora el diccionario
             for (TypeTile subindex = TypeTile.Normal; subindex < TypeTile.MaxTypeTile; subindex++)
             {
