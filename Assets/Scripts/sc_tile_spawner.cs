@@ -17,8 +17,6 @@ public class sc_tile_spawner : MonoBehaviour
     public int ProbablyFake;
     public float TileSpeed;
 
-    private int nivelDeEstupidez;
-
     /*Prefabs que se utilizaran*/
     public GameObject tileNormal;
     public GameObject tileRock;
@@ -44,11 +42,6 @@ public class sc_tile_spawner : MonoBehaviour
         Explosion,
         Fake,
         MaxTypeTile
-    }
-
-    public int getNivelDeEstupidez() 
-    {
-            return nivelDeEstupidez;
     }
 
     //Estructura de datos para diccionario
