@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95f30f57ea9f7a4e83a997316fe5be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  segundosAccion: 1
 --- !u!114 &910267866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,4 +178,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0ba70b3091e4447bd66fce275e3c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitYmovement: 1
+  limitYmovement: 0
