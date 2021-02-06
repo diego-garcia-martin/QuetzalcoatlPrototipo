@@ -16,6 +16,7 @@ public class sc_tile_spawner : MonoBehaviour
     public int ProbablyFreeze;
     public int ProbablyExplosion;
     public int ProbablyFake;
+    public int ProbablyCloud;
     /*Prefabs que se utilizaran*/
     public GameObject tileNormal;
     public GameObject tileRock;
@@ -23,6 +24,7 @@ public class sc_tile_spawner : MonoBehaviour
     public GameObject tileFreeze;
     public GameObject tileExplosion;
     public GameObject tileFake;
+    public GameObject tileCloud;
 
     //Constantes
     private const int POPULATION_TILES = 8;
@@ -40,6 +42,7 @@ public class sc_tile_spawner : MonoBehaviour
         Freeze,
         Explosion,
         Fake,
+        Cloud,
         MaxTypeTile
     }
 
@@ -82,6 +85,7 @@ public class sc_tile_spawner : MonoBehaviour
         AddObjectsToDictionary(TypeTile.Freeze, tileFreeze, ProbablyFreeze);
         AddObjectsToDictionary(TypeTile.Explosion, tileExplosion, ProbablyExplosion);
         AddObjectsToDictionary(TypeTile.Fake, tileFake, ProbablyFake);
+        AddObjectsToDictionary(TypeTile.Cloud, tileCloud, ProbablyCloud);
 
         //Recalcula las probabilidades de manera que cada prefab tenga rangos de probabilidad y no solo porcentajes de probabilidad
         TypeTileStruct value1 = new TypeTileStruct();

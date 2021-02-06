@@ -325,11 +325,12 @@ MonoBehaviour:
   TileSpeed: 0.5
   NivelDeDificultad: 0
   ProbablyNormal: 50
-  ProbablyRock: 25
+  ProbablyRock: 20
   ProbablySpikes: 5
   ProbablyFreeze: 10
   ProbablyExplosion: 5
   ProbablyFake: 5
+  ProbablyCloud: 5
   tileNormal: {fileID: 2034722282803840650, guid: 2fbecc9dd0ceb9540bc15049050c82f5,
     type: 3}
   tileRock: {fileID: 7441411029257636579, guid: b6fa2c2709b9426458ec3efe68c4bd68,
@@ -341,6 +342,8 @@ MonoBehaviour:
   tileExplosion: {fileID: 2034722282803840650, guid: 2fbecc9dd0ceb9540bc15049050c82f5,
     type: 3}
   tileFake: {fileID: 2034722282803840650, guid: 2fbecc9dd0ceb9540bc15049050c82f5,
+    type: 3}
+  tileCloud: {fileID: 7441411029257636579, guid: b6fa2c2709b9426458ec3efe68c4bd68,
     type: 3}
 --- !u!4 &1166149248
 Transform:
