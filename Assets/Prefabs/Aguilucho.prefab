@@ -142,6 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01afa05b4098a764a89f3cfb98b7c25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 3088957232428360578, guid: f697014f55deb3449b5ace98f0d0a539, type: 3}
   flightSpeed: 2
   attackSpeed: 4
+  lifetime: 30

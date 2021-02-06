@@ -10,6 +10,7 @@ public class sc_aguilucho : MonoBehaviour
     private Transform target;
     public float flightSpeed;
     public float attackSpeed;
+    public float lifetime;
     private BoxCollider2D col;
     private float cooldown;
     //Variables relacionadas con las animaciones del personaje
@@ -31,6 +32,19 @@ public class sc_aguilucho : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (lifetime > 0)
+        {
+            normalBehavior();
+        }
+        else
+        {
+            col.enabled = false;
+            tr.position = Vector3.MoveTowards(tr.position, new Vector3(0, -20, 0), (flightSpeed * Time.deltaTime));
+        }
+    }
+
+    private void normalBehavior()
+    {
         target = GameObject.FindWithTag("Player").transform;
         if (target.position.x < tr.position.x) tr.localScale = new Vector3(-1, 1, 1);
         else if (target.position.x > tr.position.x) tr.localScale = new Vector3(1, 1, 1);
@@ -50,9 +64,9 @@ public class sc_aguilucho : MonoBehaviour
         }
 
         //Decidimos si vamos a atacar
-        if (Vector3.Distance(transform.position,target.position)<3f && tr.position.y > target.position.y && cooldown <= 0)
+        if (Vector3.Distance(transform.position, target.position) < 3f && tr.position.y > target.position.y && cooldown <= 0)
         {
-            if(Random.Range(0, 10) < 1)
+            if (Random.Range(0, 10) < 1)
             {
                 changeAnimation(ATTACK);
                 cooldown = 3f;
@@ -62,12 +76,10 @@ public class sc_aguilucho : MonoBehaviour
         {
             idleFollow();
         }
-        else if(currentAnim == ATTACK)
+        else if (currentAnim == ATTACK)
         {
             attack();
         }
-
-        Debug.Log("currentAnim = " + currentAnim);
     }
 
     private void idleFollow()
@@ -75,13 +87,13 @@ public class sc_aguilucho : MonoBehaviour
         changeAnimation(IDLE);
         //Para seguir al player en el eje de las y
 
-        if(tr.position.y > target.position.y  + 4f)
+        if (tr.position.y > target.position.y + 4f)
         {
             r2d.velocity = new Vector3(r2d.velocity.x, -2, 0);
         }
-        else if(tr.position.y < target.position.y  + 2f)
+        else if (tr.position.y < target.position.y + 2f)
         {
-           r2d.velocity = new Vector3(r2d.velocity.x, 3, 0);
+            r2d.velocity = new Vector3(r2d.velocity.x, 3, 0);
         }
         // Para seguir al player en el eje de las x
         if (target.position.x > tr.position.x + 2)
