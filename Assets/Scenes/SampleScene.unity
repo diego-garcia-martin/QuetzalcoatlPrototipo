@@ -249,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnTimer: 5
   enemy1: {fileID: 6822974493449894603, guid: 782846d6c196a92478f597cef1ee4a28, type: 3}
+  enemy2: {fileID: 515417424503200480, guid: d02c92e7490f4fe40b292175c118b3e0, type: 3}
   MAX_ENEMY_COUNT: 4
 --- !u!1 &1007314341
 GameObject:
@@ -376,7 +377,7 @@ GameObject:
   - component: {fileID: 1648106962}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
