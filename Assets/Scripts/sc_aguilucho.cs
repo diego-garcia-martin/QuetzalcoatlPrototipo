@@ -11,6 +11,7 @@ public class sc_aguilucho : MonoBehaviour
     public float flightSpeed;
     public float attackSpeed;
     private BoxCollider2D col;
+    private float cooldown;
     //Variables relacionadas con las animaciones del personaje
     private Animator animator;
     private string currentAnim;
@@ -31,17 +32,63 @@ public class sc_aguilucho : MonoBehaviour
     void Update()
     {
         target = GameObject.FindWithTag("Player").transform;
-        if (r2d.velocity.x < 0) tr.localScale = new Vector3(-1, 1, 1);
-        else if (r2d.velocity.x > 0) tr.localScale = new Vector3(1, 1, 1);
+        if (target.position.x < tr.position.x) tr.localScale = new Vector3(-1, 1, 1);
+        else if (target.position.x > tr.position.x) tr.localScale = new Vector3(1, 1, 1);
 
-        if (currentAnim == IDLE) col.enabled = false;
-        else col.enabled = true;
+        if (cooldown > 0)
+        {
+            cooldown = cooldown - Time.deltaTime;
+        }
 
-        if (target.position.x > tr.position.x + 1)
+        if (currentAnim == IDLE)
+        {
+            col.enabled = false;
+        }
+        else
+        {
+            col.enabled = true;
+        }
+
+        //Decidimos si vamos a atacar
+        if (Vector3.Distance(transform.position,target.position)<3f && tr.position.y > target.position.y && cooldown <= 0)
+        {
+            if(Random.Range(0, 10) < 1)
+            {
+                changeAnimation(ATTACK);
+                cooldown = 3f;
+            }
+        }
+        if (currentAnim == IDLE)
+        {
+            idleFollow();
+        }
+        else if(currentAnim == ATTACK)
+        {
+            attack();
+        }
+
+        Debug.Log("currentAnim = " + currentAnim);
+    }
+
+    private void idleFollow()
+    {
+        changeAnimation(IDLE);
+        //Para seguir al player en el eje de las y
+
+        if(tr.position.y > target.position.y  + 4f)
+        {
+            r2d.velocity = new Vector3(r2d.velocity.x, -2, 0);
+        }
+        else if(tr.position.y < target.position.y  + 2f)
+        {
+           r2d.velocity = new Vector3(r2d.velocity.x, 3, 0);
+        }
+        // Para seguir al player en el eje de las x
+        if (target.position.x > tr.position.x + 2)
         {
             r2d.velocity = new Vector3(flightSpeed, r2d.velocity.y, 0);
         }
-        else if (target.position.x < tr.position.x - 1)
+        else if (target.position.x < tr.position.x - 2)
         {
             r2d.velocity = new Vector3(-flightSpeed, r2d.velocity.y, 0);
         }
@@ -49,6 +96,19 @@ public class sc_aguilucho : MonoBehaviour
         {
             r2d.velocity = new Vector3(0, r2d.velocity.y, 0);
         }
+
+    }
+
+    private void attack()
+    {
+        changeAnimation(ATTACK);
+        tr.position = Vector3.MoveTowards(tr.position, target.position, (attackSpeed * Time.deltaTime));
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        changeAnimation(IDLE);
     }
 
     private void changeAnimation(string newAnim)
