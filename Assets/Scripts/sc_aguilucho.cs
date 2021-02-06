@@ -41,6 +41,7 @@ public class sc_aguilucho : MonoBehaviour
             col.enabled = false;
             tr.position = Vector3.MoveTowards(tr.position, new Vector3(0, -20, 0), (flightSpeed * Time.deltaTime));
         }
+        lifetime = lifetime - Time.deltaTime;
     }
 
     private void normalBehavior()
@@ -48,6 +49,7 @@ public class sc_aguilucho : MonoBehaviour
         target = GameObject.FindWithTag("Player").transform;
         if (target.position.x < tr.position.x) tr.localScale = new Vector3(-1, 1, 1);
         else if (target.position.x > tr.position.x) tr.localScale = new Vector3(1, 1, 1);
+
 
         if (cooldown > 0)
         {
@@ -80,6 +82,7 @@ public class sc_aguilucho : MonoBehaviour
         {
             attack();
         }
+        Debug.Log("Target: " + target.position);
     }
 
     private void idleFollow()
