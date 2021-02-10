@@ -331,7 +331,7 @@ MonoBehaviour:
   ProbablyFreeze: 10
   ProbablyExplosion: 5
   ProbablyFake: 5
-  ProbablyCloud: 5
+  ProbablyCloud: 0
   tileNormal: {fileID: 7187949188770584654, guid: 550c653fc4e1b384ca6bca56faab659f,
     type: 3}
   tileRock: {fileID: 7187949188770584654, guid: affd7e54362d6824f9bc2b2d62262d4b,
@@ -344,8 +344,7 @@ MonoBehaviour:
     type: 3}
   tileFake: {fileID: 7187949188770584654, guid: df6e92830b5d6904d9d33dbe353cca09,
     type: 3}
-  tileCloud: {fileID: 7187949188770584654, guid: e57bd7744f6c64046a12ba8a4ff90aaa,
-    type: 3}
+  tileCloud: {fileID: 0}
 --- !u!4 &1166149248
 Transform:
   m_ObjectHideFlags: 0
