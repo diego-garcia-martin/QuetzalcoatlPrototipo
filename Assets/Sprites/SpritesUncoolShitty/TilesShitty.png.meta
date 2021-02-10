@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: 8f2bc043bed2faf459823f5609b36e7a
+guid: 6174ef98ab2f3084d91d42b8a2c52911
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5740798726154109270
-    second: Aguilucho-sheet_0
+      213: -137653432390660454
+    second: TilesShitty_0
   - first:
-      213: 9191929599800341689
-    second: Aguilucho-sheet_1
+      213: -5924051787751492106
+    second: TilesShitty_1
   - first:
-      213: -4902823838126980284
-    second: Aguilucho-sheet_2
+      213: -4405404547249172132
+    second: TilesShitty_2
   - first:
-      213: -7235128897788597359
-    second: Aguilucho-sheet_3
+      213: -6398246507652265392
+    second: TilesShitty_3
   - first:
-      213: 6217585339778746212
-    second: Aguilucho-sheet_4
+      213: 6798196611492847175
+    second: TilesShitty_4
   - first:
-      213: 182655160627564830
-    second: Aguilucho-sheet_5
+      213: -9149020637510705611
+    second: TilesShitty_5
+  - first:
+      213: -4251173214005406962
+    second: TilesShitty_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -65,7 +68,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -101,53 +104,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Aguilucho-sheet_0
+      name: TilesShitty_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +122,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aaeb19089f59450b0800000000000000
-      internalID: -5740798726154109270
+      spriteID: a9ecd3cbee4f61ef0800000000000000
+      internalID: -137653432390660454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Aguilucho-sheet_1
+      name: TilesShitty_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f5fd08394a89cda0800000000000000
+      internalID: -5924051787751492106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilesShitty_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,20 +164,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b47f74254b409f70800000000000000
-      internalID: 9191929599800341689
+      spriteID: c519255b7ebdcd2c0800000000000000
+      internalID: -4405404547249172132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Aguilucho-sheet_2
+      name: TilesShitty_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05ac00e53bcd437a0800000000000000
+      internalID: -6398246507652265392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilesShitty_4
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,20 +206,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 443cf1c02bba5fbb0800000000000000
-      internalID: -4902823838126980284
+      spriteID: 74e9b4dbccb085e50800000000000000
+      internalID: 6798196611492847175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Aguilucho-sheet_3
+      name: TilesShitty_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53ed47a2436280180800000000000000
+      internalID: -9149020637510705611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilesShitty_6
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,50 +248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19ba52fc998a79b90800000000000000
-      internalID: -7235128897788597359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Aguilucho-sheet_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4674032acec494650800000000000000
-      internalID: 6217585339778746212
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Aguilucho-sheet_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e11199d96ebe88200800000000000000
-      internalID: 182655160627564830
+      spriteID: e035d8c4c7cc005c0800000000000000
+      internalID: -4251173214005406962
       vertices: []
       indices: 
       edges: []
