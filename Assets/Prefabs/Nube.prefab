@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8023882960199056115}
   - component: {fileID: 7921883095938032532}
   - component: {fileID: -3796666875078716350}
+  - component: {fileID: 1475381663}
   m_Layer: 0
   m_Name: Nube
   m_TagString: Ground
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1231415005324001922, guid: 9735578bee5412243a04f0e928217b0e,
+  m_Sprite: {fileID: -2882561191978030110, guid: e733a3b981139ca4e9ed66320edf609a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -122,4 +123,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d3745c1525ad84b9db71d7facb7d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaNube: 9
+  vidaNube: 5
+--- !u!95 &1475381663
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4065346390276830495}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 710d95e3d9d5ff443bc079ee9ebf3a7a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

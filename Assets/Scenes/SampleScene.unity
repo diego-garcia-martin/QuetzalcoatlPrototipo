@@ -344,7 +344,8 @@ MonoBehaviour:
     type: 3}
   tileFake: {fileID: 7187949188770584654, guid: df6e92830b5d6904d9d33dbe353cca09,
     type: 3}
-  tileCloud: {fileID: 0}
+  tileCloud: {fileID: 4065346390276830495, guid: fb243c10c0f68fc4ba48b6118743d89e,
+    type: 3}
 --- !u!4 &1166149248
 Transform:
   m_ObjectHideFlags: 0

@@ -7,13 +7,20 @@ public class sc_nube : MonoBehaviour
     // Start is called before the first frame update
     public float vidaNube;
     private float timer;
-    private SpriteRenderer sr;
     private BoxCollider2D col;
+
+    
+    private const string IDLE = "Anim_nube_idle";
+    private const string END = "Anim_nube_end";
+    private Animator animator;
+    private string currentAnim;
     void Start()
     {
+        currentAnim = "";
         timer = vidaNube;
-        sr = GetComponent<SpriteRenderer>();
         col = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
+        changeAnimation(IDLE);
     }
 
     // Update is called once per frame
@@ -21,18 +28,22 @@ public class sc_nube : MonoBehaviour
     {
         timer = timer - Time.deltaTime;
 
-        float alpha = timer / vidaNube;
-
-        sr.color = new Color(1f, 1f, 1f, alpha);
-
-        if (alpha < 0.3f)
+        if (timer <= 1)
         {
+            changeAnimation(END);
             col.enabled = false;
-        } 
+        }
 
         if (timer <= 0)
         {
             Destroy(gameObject);
         }
+    }
+
+        private void changeAnimation(string newAnim)
+    {
+        if(currentAnim == newAnim) return;
+        animator.Play(newAnim);
+        currentAnim = newAnim;
     }
 }
