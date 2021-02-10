@@ -27,7 +27,7 @@ public class sc_tile_spawner : MonoBehaviour
     public GameObject tileCloud;
 
     //Constantes
-    private const int POPULATION_TILES = 8;
+    private const int POPULATION_TILES = 7;
     private const float MIN_POS_IN_Y = -6;
     private const float MAX_POS_IN_Y = 15;
     private const float MIN_POS_IN_X = -8;
@@ -142,8 +142,8 @@ public class sc_tile_spawner : MonoBehaviour
         float y = MIN_POS_IN_Y;
         for (int p = 0; p < POPULATION_TILES; p++)
         {
-            InsertTile(Random.Range(MIN_POS_IN_X, MAX_POS_IN_X), y);
             y += 3f;
+            InsertTile(Random.Range(MIN_POS_IN_X, MAX_POS_IN_X), y);
         }
 
     }

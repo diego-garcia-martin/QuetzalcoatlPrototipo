@@ -52,7 +52,7 @@ public class sc_player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         float dify = tr.position.y - collision.transform.position.y;
-        if(collision.gameObject.tag == "Ground" && dify > 0)
+        if((collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy") && dify > 0)
         {
             jumping = 0;
             grounded = true;

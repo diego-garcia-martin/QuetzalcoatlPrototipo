@@ -82,7 +82,7 @@ public class sc_aguilucho : MonoBehaviour
         {
             attack();
         }
-        Debug.Log("Target: " + target.position);
+        //Debug.Log("Target: " + target.position);
     }
 
     private void idleFollow()
