@@ -33,7 +33,7 @@ public class sc_normal_tile : MonoBehaviour
     void Update()
     {
         target = GameObject.FindWithTag("Player").transform;
-        if (target.position.y < transformObject.position.y)
+        if (target.position.y < transformObject.position.y - 1)
         {
             box_Collider.enabled = false;
         }
