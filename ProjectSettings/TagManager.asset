@@ -40,18 +40,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Player
-    uniqueID: 76358105
-    locked: 0
-  - name: Characters
-    uniqueID: 491019259
-    locked: 0
-  - name: FG
-    uniqueID: 2578289221
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: BG
     uniqueID: 1358633873
     locked: 0
-  - name: Default
-    uniqueID: 0
+  - name: FG
+    uniqueID: 2578289221
+    locked: 0
+  - name: Characters
+    uniqueID: 491019259
+    locked: 0
+  - name: Player
+    uniqueID: 76358105
     locked: 0
