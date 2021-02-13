@@ -332,7 +332,7 @@ MonoBehaviour:
   ProbablyExplosion: 5
   ProbablyFake: 5
   ProbablyCloud: 0
-  tileNormal: {fileID: 7187949188770584654, guid: 550c653fc4e1b384ca6bca56faab659f,
+  tileNormal: {fileID: 4445062900454413554, guid: 9c8d5ad3ec917314ab32a794ba2eefed,
     type: 3}
   tileRock: {fileID: 7187949188770584654, guid: affd7e54362d6824f9bc2b2d62262d4b,
     type: 3}
