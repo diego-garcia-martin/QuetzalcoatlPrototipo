@@ -141,7 +141,12 @@ public class sc_tile_spawner : MonoBehaviour
                 //Si num esta dentro del rango se instancia el prefab contenido en el indice, termina proceso
                 if (num >= tempTile.probablySpawnerMininum && num <= tempTile.probablySpawnerMaximum)
                 {
-                    temp_list.Add(Instantiate(tempTile.gameObject, new Vector3(x + index, y, 0), Quaternion.identity)); //Modify Vector
+                    float rotation = 0;
+                    if (subindex < TypeTile.Cloud)
+                    {
+                        rotation = Random.Range(0, 3) * 90;
+                    }
+                    temp_list.Add(Instantiate(tempTile.gameObject, new Vector3(x + index, y, 0), Quaternion.Euler(0f, 0f, rotation))); //Modify Vector
                     break;
                 }
             }
