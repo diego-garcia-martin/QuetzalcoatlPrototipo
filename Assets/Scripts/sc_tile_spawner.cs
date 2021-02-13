@@ -28,10 +28,10 @@ public class sc_tile_spawner : MonoBehaviour
 
     //Constantes
     private const int POPULATION_TILES = 7;
-    private const float MIN_POS_IN_Y = -6;
-    private const float MAX_POS_IN_Y = 15;
-    private const float MIN_POS_IN_X = -8;
-    private const float MAX_POS_IN_X = 8;
+    private const int MIN_POS_IN_Y = -6;
+    private const int MAX_POS_IN_Y = 15;
+    private const int MIN_POS_IN_X = -8;
+    private const int MAX_POS_IN_X = 8;
 
     //Indice de tipo de prefabs para diccionario
     private enum TypeTile
@@ -61,6 +61,12 @@ public class sc_tile_spawner : MonoBehaviour
     //Diccionario de prefabs para usar en el juego
     private Dictionary<TypeTile, TypeTileStruct> dictionaryProbably;
 
+    //Metodo para generar valores flotantes random en unidades
+    private float RandomFloatUnit(int min, int max, float offset) 
+    {
+        return (float) Random.Range(min,max) + offset;
+    }
+    
     //Metodo para agregar un prefab con su numero de index y la probabilidad de aparicion deseada en el juego
     private void AddObjectsToDictionary(TypeTile type, GameObject Object, int probably)
     {
@@ -107,23 +113,54 @@ public class sc_tile_spawner : MonoBehaviour
     public void InsertTile(float x, float y)
     {
         List<GameObject> temp_list = new List<GameObject>();
-        int num_tiles = Random.Range(3, 5);
+        int num_tiles = Random.Range(3, 8);
         int num;
+        bool clouds = false;
         TypeTileStruct tempTile = new TypeTileStruct();
+
+        //Limitar la posicion de los tiles entre tiles
+        if (l_tile != null && l_tile.Count > 0 ) 
+        {
+            if (x > l_tile[l_tile.Count - 1][0].transform.position.x + 8f)
+            {
+                x = l_tile[l_tile.Count - 1][0].transform.position.x + 8f;
+            }
+            else if (x < l_tile[l_tile.Count - 1][0].transform.position.x - 8f) 
+            {
+                x = l_tile[l_tile.Count - 1][0].transform.position.x - 8f;
+            }
+        }
 
         //Hacemos un for con el numero de tiles a meter en este piso
         for (int index = 0; index < num_tiles; index++)
         {
-            num = Random.Range(1, 100);
-            //Explora el diccionario
-            for (TypeTile subindex = TypeTile.Normal; subindex < TypeTile.MaxTypeTile; subindex++)
+            if (clouds)
             {
-                dictionaryProbably.TryGetValue(subindex, out tempTile);
-                //Si num esta dentro del rango se instancia el prefab contenido en el indice, termina proceso
-                if (num >= tempTile.probablySpawnerMininum && num <= tempTile.probablySpawnerMaximum)
+                temp_list.Add(Instantiate(tileCloud, new Vector3(x + index, y, 0), Quaternion.identity)); //Modify Vector
+            }
+            else
+            {
+                num = Random.Range(1, 100);
+                //Explora el diccionario
+                for (TypeTile subindex = TypeTile.Normal; subindex < TypeTile.MaxTypeTile; subindex++)
                 {
-                    temp_list.Add(Instantiate(tempTile.gameObject, new Vector3(x + index, y, 0), Quaternion.identity)); //Modify Vector
-                    break;
+                    dictionaryProbably.TryGetValue(subindex, out tempTile);
+                    //Si num esta dentro del rango se instancia el prefab contenido en el indice, termina proceso
+                    if (num >= tempTile.probablySpawnerMininum && num <= tempTile.probablySpawnerMaximum)
+                    {
+                        float rotation = 0;
+                        if (subindex != TypeTile.Cloud)
+                        {
+                            rotation = Random.Range(0, 3) * 90;
+                            temp_list.Add(Instantiate(tempTile.gameObject, new Vector3(x + index, y, 0), Quaternion.Euler(0f, 0f, rotation))); //Modify Vector
+                        }
+                        else
+                        {
+                            clouds = true;
+                            temp_list.Add(Instantiate(tempTile.gameObject, new Vector3(x + index, y, 0), Quaternion.identity)); //Modify Vector
+                        }
+                        break;
+                    }
                 }
             }
         }
@@ -139,11 +176,11 @@ public class sc_tile_spawner : MonoBehaviour
         InitializeDictionaryProbably();
 
         //Populate screen
-        float y = MIN_POS_IN_Y;
+        float y = (float)MIN_POS_IN_Y;
         for (int p = 0; p < POPULATION_TILES; p++)
         {
             y += 3f;
-            InsertTile(Random.Range(MIN_POS_IN_X, MAX_POS_IN_X), y);
+            InsertTile(RandomFloatUnit(MIN_POS_IN_X, MAX_POS_IN_X, 0.5f), y);
         }
 
     }
@@ -166,7 +203,7 @@ public class sc_tile_spawner : MonoBehaviour
                     GameObject.Destroy(l_tile[index][subindex]);
                 }
                 l_tile.RemoveAt(index);
-                InsertTile(Random.Range(MIN_POS_IN_X, MAX_POS_IN_X), MAX_POS_IN_Y);
+                InsertTile(RandomFloatUnit(MIN_POS_IN_X, MAX_POS_IN_X, 0.5f), (float)MAX_POS_IN_Y);
             }
         }
     }
