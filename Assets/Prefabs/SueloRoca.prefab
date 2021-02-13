@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3058269384636164553}
   - component: {fileID: 3196416857516880351}
   - component: {fileID: 8192394163854146120}
-  - component: {fileID: 1228922254244154990}
   m_Layer: 0
   m_Name: SueloRoca
   m_TagString: Ground
@@ -110,15 +109,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1228922254244154990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7187949188770584654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a0644e34266fd44ea4353b76f0590b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
