@@ -113,8 +113,9 @@ public class sc_tile_spawner : MonoBehaviour
     public void InsertTile(float x, float y)
     {
         List<GameObject> temp_list = new List<GameObject>();
-        int num_tiles = Random.Range(3, 5);
+        int num_tiles = Random.Range(3, 8);
         int num;
+        bool clouds = false;
         TypeTileStruct tempTile = new TypeTileStruct();
 
         //Limitar la posicion de los tiles entre tiles
@@ -133,21 +134,33 @@ public class sc_tile_spawner : MonoBehaviour
         //Hacemos un for con el numero de tiles a meter en este piso
         for (int index = 0; index < num_tiles; index++)
         {
-            num = Random.Range(1, 100);
-            //Explora el diccionario
-            for (TypeTile subindex = TypeTile.Normal; subindex < TypeTile.MaxTypeTile; subindex++)
+            if (clouds)
             {
-                dictionaryProbably.TryGetValue(subindex, out tempTile);
-                //Si num esta dentro del rango se instancia el prefab contenido en el indice, termina proceso
-                if (num >= tempTile.probablySpawnerMininum && num <= tempTile.probablySpawnerMaximum)
+                temp_list.Add(Instantiate(tileCloud, new Vector3(x + index, y, 0), Quaternion.identity)); //Modify Vector
+            }
+            else
+            {
+                num = Random.Range(1, 100);
+                //Explora el diccionario
+                for (TypeTile subindex = TypeTile.Normal; subindex < TypeTile.MaxTypeTile; subindex++)
                 {
-                    float rotation = 0;
-                    if (subindex < TypeTile.Cloud)
+                    dictionaryProbably.TryGetValue(subindex, out tempTile);
+                    //Si num esta dentro del rango se instancia el prefab contenido en el indice, termina proceso
+                    if (num >= tempTile.probablySpawnerMininum && num <= tempTile.probablySpawnerMaximum)
                     {
-                        rotation = Random.Range(0, 3) * 90;
+                        float rotation = 0;
+                        if (subindex != TypeTile.Cloud)
+                        {
+                            rotation = Random.Range(0, 3) * 90;
+                            temp_list.Add(Instantiate(tempTile.gameObject, new Vector3(x + index, y, 0), Quaternion.Euler(0f, 0f, rotation))); //Modify Vector
+                        }
+                        else
+                        {
+                            clouds = true;
+                            temp_list.Add(Instantiate(tempTile.gameObject, new Vector3(x + index, y, 0), Quaternion.identity)); //Modify Vector
+                        }
+                        break;
                     }
-                    temp_list.Add(Instantiate(tempTile.gameObject, new Vector3(x + index, y, 0), Quaternion.Euler(0f, 0f, rotation))); //Modify Vector
-                    break;
                 }
             }
         }
