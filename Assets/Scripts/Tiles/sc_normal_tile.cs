@@ -15,8 +15,9 @@ public class sc_normal_tile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int rand = Random.Range(1, 4);
+        int rand = Random.Range(0, 3);
         sr = GetComponent<SpriteRenderer>();
+        l_sprites = new List<Sprite>();
         l_sprites.Add(sp1);
         l_sprites.Add(sp2);
         l_sprites.Add(sp3);
