@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3196416857516880351}
   - component: {fileID: 8192394163854146120}
   m_Layer: 0
-  m_Name: SueloNormal 1
+  m_Name: SueloRoca
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
