@@ -14,8 +14,10 @@ public class sc_nube : MonoBehaviour
     private const string END = "Anim_nube_end";
     private Animator animator;
     private string currentAnim;
+    private bool timing;
     void Start()
     {
+        timing = false;
         currentAnim = "";
         timer = vidaNube;
         col = GetComponent<BoxCollider2D>();
@@ -26,7 +28,7 @@ public class sc_nube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer = timer - Time.deltaTime;
+        if (timing) timer = timer - Time.deltaTime;
 
         if (timer <= 1)
         {
@@ -45,5 +47,10 @@ public class sc_nube : MonoBehaviour
         if(currentAnim == newAnim) return;
         animator.Play(newAnim);
         currentAnim = newAnim;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        timing = true;
     }
 }

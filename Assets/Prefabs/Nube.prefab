@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d3745c1525ad84b9db71d7facb7d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaNube: 5
+  vidaNube: 3
 --- !u!95 &1475381663
 Animator:
   serializedVersion: 3
