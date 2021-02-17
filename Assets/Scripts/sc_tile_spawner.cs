@@ -191,20 +191,26 @@ public class sc_tile_spawner : MonoBehaviour
         //Mueve cada tile a nueva posicion y elimina la que salga de rango
         for (int index = 0; index < l_tile.Count; index++)
         {
-            for (int subindex = 0; subindex < l_tile[index].Count; subindex++)
-            {
-                l_tile[index][subindex].transform.position = l_tile[index][subindex].transform.position + new Vector3(0, -1f, 0) * Time.deltaTime * TileSpeed;
-            }
-            //Borra los tiles que van saliendo del mapa
-            if (l_tile[index][0].transform.position.y < MIN_POS_IN_Y)
+            if (l_tile[index][0] != null)
             {
                 for (int subindex = 0; subindex < l_tile[index].Count; subindex++)
                 {
-                    GameObject.Destroy(l_tile[index][subindex]);
+                    if (l_tile[index][subindex] != null)
+                    l_tile[index][subindex].transform.position = l_tile[index][subindex].transform.position + new Vector3(0, -1f, 0) * Time.deltaTime * TileSpeed;
                 }
-                l_tile.RemoveAt(index);
-                InsertTile(RandomFloatUnit(MIN_POS_IN_X, MAX_POS_IN_X, 0.5f), (float)MAX_POS_IN_Y);
+                //Borra los tiles que van saliendo del mapa
+                if (l_tile[index][0].transform.position.y < MIN_POS_IN_Y)
+                {
+                    for (int subindex = 0; subindex < l_tile[index].Count; subindex++)
+                    {
+                        if (l_tile[index][subindex] != null)
+                        GameObject.Destroy(l_tile[index][subindex]);
+                    }
+                    l_tile.RemoveAt(index);
+                    InsertTile(RandomFloatUnit(MIN_POS_IN_X, MAX_POS_IN_X, 0.5f), (float)MAX_POS_IN_Y);
+                }
             }
+            
         }
     }
 }
