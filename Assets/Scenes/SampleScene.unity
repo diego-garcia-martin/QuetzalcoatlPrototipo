@@ -329,9 +329,9 @@ MonoBehaviour:
   ProbablyRock: 20
   ProbablySpikes: 5
   ProbablyFreeze: 10
-  ProbablyExplosion: 5
-  ProbablyFake: 5
-  ProbablyCloud: 0
+  ProbablyExplosion: 0
+  ProbablyFake: 0
+  ProbablyCloud: 10
   tileNormal: {fileID: 4445062900454413554, guid: 9c8d5ad3ec917314ab32a794ba2eefed,
     type: 3}
   tileRock: {fileID: 7187949188770584654, guid: affd7e54362d6824f9bc2b2d62262d4b,
