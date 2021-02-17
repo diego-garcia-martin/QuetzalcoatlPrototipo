@@ -42,7 +42,7 @@ public class sc_nube : MonoBehaviour
         }
     }
 
-        private void changeAnimation(string newAnim)
+    private void changeAnimation(string newAnim)
     {
         if(currentAnim == newAnim) return;
         animator.Play(newAnim);
