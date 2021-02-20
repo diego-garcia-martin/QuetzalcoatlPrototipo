@@ -8,10 +8,6 @@ public class sc_normal_tile : MonoBehaviour
     private List<Sprite> l_sprites;
     private SpriteRenderer sr;
 
-    private Transform target;
-    private Transform transformObject;
-    private BoxCollider2D box_Collider;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -25,22 +21,6 @@ public class sc_normal_tile : MonoBehaviour
 
         sr.sprite = l_sprites[rand];
 
-        transformObject = GetComponent<Transform>();
-        box_Collider = GetComponent<BoxCollider2D>();
-
-    }
-
-    void Update()
-    {
-        target = GameObject.FindWithTag("Player").transform;
-        if (target.position.y - 0.8f < transformObject.position.y)
-        {
-            box_Collider.enabled = false;
-        }
-        else 
-        {
-            box_Collider.enabled = true;
-        }
     }
 
 }
