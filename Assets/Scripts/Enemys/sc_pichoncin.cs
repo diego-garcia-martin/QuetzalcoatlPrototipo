@@ -98,7 +98,7 @@ public class sc_pichoncin : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Ice")
         {
             isGrounded = true;
             r2d.velocity = new Vector2(0, 0);
