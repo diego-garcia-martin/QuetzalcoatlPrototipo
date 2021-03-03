@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3196416857516880351}
   - component: {fileID: 8192394163854146120}
   m_Layer: 0
-  m_Name: SueloNormal 6
+  m_Name: SueloSpikes
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 7187949188770584654}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1257f48b22b5d9a4e9db1a63166b8f76, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

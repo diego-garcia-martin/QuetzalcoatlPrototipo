@@ -1,31 +1,25 @@
 fileFormatVersion: 2
-guid: 390c2e41277da2649892a53c75aa217c
+guid: c125ea2ca8fa24c4a859c6fee8dd93da
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4603121776119548154
-    second: NEO-Quetzalcoalt-Sheet_0
+      213: -4421286014600268994
+    second: NEO-Aguilucho-Sheet_0
   - first:
-      213: -1266552664454549104
-    second: NEO-Quetzalcoalt-Sheet_1
+      213: -1284065846514312396
+    second: NEO-Aguilucho-Sheet_1
   - first:
-      213: -30980503767801247
-    second: NEO-Quetzalcoalt-Sheet_2
+      213: -8495887029829527820
+    second: NEO-Aguilucho-Sheet_2
   - first:
-      213: 7188695699872977521
-    second: NEO-Quetzalcoalt-Sheet_3
+      213: -4065836545709646666
+    second: NEO-Aguilucho-Sheet_3
   - first:
-      213: 8705639469283208250
-    second: NEO-Quetzalcoalt-Sheet_4
+      213: 3369221593147230136
+    second: NEO-Aguilucho-Sheet_4
   - first:
-      213: 4164108839784041623
-    second: NEO-Quetzalcoalt-Sheet_5
-  - first:
-      213: 4736227086927069168
-    second: NEO-Quetzalcoalt-Sheet_6
-  - first:
-      213: 7153099791640521554
-    second: NEO-Quetzalcoalt-Sheet_7
+      213: 1894884412311310939
+    second: NEO-Aguilucho-Sheet_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -55,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -147,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NEO-Quetzalcoalt-Sheet_0
+      name: NEO-Aguilucho-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,41 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af88873fdd291ef30800000000000000
-      internalID: 4603121776119548154
+      spriteID: e3339517bcf64a2c0800000000000000
+      internalID: -4421286014600268994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NEO-Quetzalcoalt-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 091bcd9ef0d4c6ee0800000000000000
-      internalID: -1266552664454549104
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NEO-Quetzalcoalt-Sheet_2
+      name: NEO-Aguilucho-Sheet_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,41 +176,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16225fd556fe19ff0800000000000000
-      internalID: -30980503767801247
+      spriteID: 43b9d467ae41e2ee0800000000000000
+      internalID: -1284065846514312396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NEO-Quetzalcoalt-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1729e45d6a063c360800000000000000
-      internalID: 7188695699872977521
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NEO-Quetzalcoalt-Sheet_4
+      name: NEO-Aguilucho-Sheet_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,41 +197,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3cee3d09f4a0d870800000000000000
-      internalID: 8705639469283208250
+      spriteID: 4f6992f62cb881a80800000000000000
+      internalID: -8495887029829527820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NEO-Quetzalcoalt-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 79c44696de2e9c930800000000000000
-      internalID: 4164108839784041623
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NEO-Quetzalcoalt-Sheet_6
+      name: NEO-Aguilucho-Sheet_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,20 +218,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fffed321757ab140800000000000000
-      internalID: 4736227086927069168
+      spriteID: 6bcdc22143f3397c0800000000000000
+      internalID: -4065836545709646666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NEO-Quetzalcoalt-Sheet_7
+      name: NEO-Aguilucho-Sheet_4
       rect:
         serializedVersion: 2
-        x: 224
+        x: 256
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,8 +239,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25b67ab9c5ae44360800000000000000
-      internalID: 7153099791640521554
+      spriteID: 8b7cd152031e1ce20800000000000000
+      internalID: 3369221593147230136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEO-Aguilucho-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b529d3e555bfb4a10800000000000000
+      internalID: 1894884412311310939
       vertices: []
       indices: 
       edges: []
