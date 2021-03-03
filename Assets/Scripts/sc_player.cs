@@ -8,6 +8,9 @@ public class sc_player : MonoBehaviour
     private const string RUN = "Anim_Quetzalcoatl_run";
     private const string JUMP = "Anim_Quetzalcoatl_jump";
 
+    private const float TOUCHMOVEADJUST = 2.5f;
+    private const float OUTOFBOUNDS = -5f;
+
     private Rigidbody2D r2d;
     private Transform tr;
     private Animator animator;
@@ -19,6 +22,8 @@ public class sc_player : MonoBehaviour
     public float moveSpeed;
     public int maxJumps;
     public bool debugMode;
+    private float xspeed;
+    private bool sliding;
 
     void Start()
     {
@@ -30,6 +35,8 @@ public class sc_player : MonoBehaviour
         animator = GetComponent<Animator>();
         jumping = 0;
         changeAnimation(IDLE);
+        xspeed = 0;
+        sliding = false;
     }
 
     // Update is called once per frame
@@ -38,7 +45,7 @@ public class sc_player : MonoBehaviour
         //Esto es para pruebas, si se sale de la pantalla el mono que vuelva a entrar y mostrar las velocidades y valores de interes
         if(debugMode){
             //debugInfo();
-            if(tr.position.y < -5)
+            if(tr.position.y < OUTOFBOUNDS)
             {
                 tr.SetPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
                 r2d.velocity = new Vector2(0, 0);
@@ -52,10 +59,19 @@ public class sc_player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         float dify = tr.position.y - collision.transform.position.y;
-        if((collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy") && dify > 0)
+        if((collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Ice") && dify > 0)
         {
             jumping = 0;
             grounded = true;
+        }
+        if(collision.gameObject.tag == "Ice")
+        {
+            xspeed = r2d.velocity.x;
+            sliding = true;
+        }
+        else
+        {
+            sliding = false;
         }
     }
 
@@ -89,20 +105,17 @@ public class sc_player : MonoBehaviour
             changeAnimation(JUMP);
             grounded = false;
             touchEnable = false;
+            sliding = false;
         }
 
-        dirx = Input.acceleration.x * moveSpeed * 2.5f;
+        dirx = Input.acceleration.x * moveSpeed * TOUCHMOVEADJUST;
 
-        if(Input.GetKey(KeyCode.LeftArrow))
-        {
-            dirx = -moveSpeed;
-        }
-        if(Input.GetKey(KeyCode.RightArrow))
-        {
-            dirx = moveSpeed;
-        }
+        if(Input.GetKey(KeyCode.LeftArrow)) dirx = -moveSpeed;
+        if(Input.GetKey(KeyCode.RightArrow)) dirx = moveSpeed;
 
-        r2d.velocity = new Vector2(dirx, r2d.velocity.y);
+        xspeed = (sliding || !grounded) ? xspeed + (dirx * Time.deltaTime) : dirx;
+
+        r2d.velocity = new Vector2(xspeed, r2d.velocity.y);
     }
 
     private void changeAnimation(string newAnim)
