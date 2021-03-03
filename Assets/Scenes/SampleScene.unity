@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 1166149248}
   - component: {fileID: 1166149247}
   m_Layer: 0
-  m_Name: TileSpawner
+  m_Name: MapGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,27 +427,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TileSpeed: 0.5
   NivelDeDificultad: 0
-  ProbablyNormal: 50
-  ProbablyRock: 20
-  ProbablySpikes: 5
-  ProbablyFreeze: 10
-  ProbablyExplosion: 0
-  ProbablyFake: 0
-  ProbablyCloud: 10
+  ProbablySpawnTileNormal: 0
+  ProbablySpawnTileRock: 0
+  ProbablySpawnTileFreeze: 0
+  ProbablySpawnTileFake: 0
+  ProbablySpawnTileCloud: 0
+  ProbablySpawnSpikes: 0
+  ProbablySpawnExplosion: 0
+  ProbablySpawnMicelanios: 0
   tileNormal: {fileID: 4445062900454413554, guid: 9c8d5ad3ec917314ab32a794ba2eefed,
     type: 3}
   tileRock: {fileID: 7187949188770584654, guid: affd7e54362d6824f9bc2b2d62262d4b,
     type: 3}
-  tileSpikes: {fileID: 7187949188770584654, guid: 8e4da7c319b20a94db25314693ba7198,
-    type: 3}
   tileFreeze: {fileID: 7187949188770584654, guid: 61cafdbb599a8c44a8861200c2f3c1af,
-    type: 3}
-  tileExplosion: {fileID: 7187949188770584654, guid: c949b4c64cf5d6b46880e0f4d3079720,
     type: 3}
   tileFake: {fileID: 7187949188770584654, guid: df6e92830b5d6904d9d33dbe353cca09,
     type: 3}
   tileCloud: {fileID: 4065346390276830495, guid: fb243c10c0f68fc4ba48b6118743d89e,
     type: 3}
+  objectSpikes: {fileID: 0}
+  objectExplosion: {fileID: 0}
+  objectMicelanio: {fileID: 0}
 --- !u!4 &1166149248
 Transform:
   m_ObjectHideFlags: 0
