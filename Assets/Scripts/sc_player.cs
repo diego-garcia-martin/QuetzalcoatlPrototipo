@@ -133,4 +133,24 @@ public class sc_player : MonoBehaviour
     {
         print("Debug Mode On");
     }
+
+    public void setJumps(int j)
+    {
+        jumping = j;
+    }
+
+    public int getJumps(int j)
+    {
+        return jumping;
+    }
+
+    public int getmaxJumps()
+    {
+        return maxJumps;
+    }
+
+    public void setmaxJumps(int j)
+    {
+        maxJumps = j;
+    }
 }

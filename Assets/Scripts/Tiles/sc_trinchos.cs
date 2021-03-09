@@ -28,7 +28,9 @@ public class sc_trinchos : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Rigidbody2D r2d = collision.gameObject.GetComponent<Rigidbody2D>();
+            sc_player pl = collision.gameObject.GetComponent<sc_player>();
             r2d.velocity = new Vector3(r2d.velocity.x, playerRepel, 0);
+            pl.setJumps(pl.getmaxJumps());
         }
     }
 
