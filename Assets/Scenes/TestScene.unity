@@ -800,12 +800,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pichoncin
       objectReference: {fileID: 0}
-    - target: {fileID: 6822974493449894604, guid: 782846d6c196a92478f597cef1ee4a28,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 5760255019027303561, guid: a1d44a91f10012d42966cf9dd4453254,
-        type: 3}
     - target: {fileID: 6822974493449894605, guid: 782846d6c196a92478f597cef1ee4a28,
         type: 3}
       propertyPath: m_RootOrder
