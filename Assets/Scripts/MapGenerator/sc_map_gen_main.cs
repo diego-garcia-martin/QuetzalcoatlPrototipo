@@ -55,6 +55,14 @@ public class sc_map_gen_main : MonoBehaviour
         TypeEscenariosEnd
     }
 
+    private enum eMACROLEVEL 
+    {
+        LevelTerra,
+        LevelMountain,
+        LevelSky,
+        LevelSpace
+    }
+
     private struct StructDataObject
     {
         public GameObject Object;
@@ -62,7 +70,7 @@ public class sc_map_gen_main : MonoBehaviour
         public int ProbabilityMayor;
     }
 
-    private struct StructEscenarioData 
+    private struct StructEscenarioData
     {
         public int ProbabilityMinor;
         public int ProbabilityMayor;
@@ -71,6 +79,19 @@ public class sc_map_gen_main : MonoBehaviour
     private Dictionary<eDiccionaryTypeObject, List<StructDataObject>> DictionaryOfGameObjects;
 
     private Dictionary<eTypeEscenarios, StructEscenarioData> ProbablyEscenarios;
+
+    private List<GameObject> ObjectsListInTheScreen;
+
+    private eMACROLEVEL MacroLevel;
+
+    private const float COORDENATE_HIGH_Y = 22.5f;
+    private const float COORDENATE_LOW_Y = -13.5f;
+    private const float COORDENATE_LEFT_X = -8.5f;
+    private const float COORDENATE_RIGHT_X = 8.5f;
+    private const float UNIT_FLOAT = 1f;
+    private const int OBJECTS_IN_SCREEN_X = 18;
+    private const int OBJECTS_IN_SCREEN_Y = 10;
+
 
     private List<StructDataObject> initTilesObjects() 
     {
@@ -141,6 +162,29 @@ public class sc_map_gen_main : MonoBehaviour
             valueObjective.ProbabilityMayor += valueBefore.ProbabilityMayor;
             ProbablyEscenarios[index] = valueObjective;
         }
+    }
+
+    private void CreateLevel(bool ignoreRandom = false, eTypeEscenarios manualScenario = 0) 
+    {
+        eTypeEscenarios scenario;
+        if (ignoreRandom)
+        {
+            scenario = manualScenario;
+        }
+        else 
+        {
+            int scenarioProbably = Random.Range(0, 100);
+            for (scenario = eTypeEscenarios.TypeEscenariosStart; scenario < eTypeEscenarios.TypeEscenariosEnd; scenario++)
+            {
+                StructEscenarioData dataScenario = new StructEscenarioData();
+                ProbablyEscenarios.TryGetValue(scenario, out dataScenario);
+                if (dataScenario.ProbabilityMinor >= scenarioProbably && dataScenario.ProbabilityMayor <= scenarioProbably) 
+                {
+                    break;
+                }
+            }
+        }
+        
     }
 
     // Start is called before the first frame update
