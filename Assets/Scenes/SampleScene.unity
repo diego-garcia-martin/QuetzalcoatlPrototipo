@@ -478,32 +478,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1166149246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70138c0fca0625841bf27b2962a26216, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b43fc88e6a90cb4ea8132e6005fdbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileSpeed: 0.5
-  NivelDeDificultad: 0
-  ProbablySpawnTileNormal: 0
-  ProbablySpawnTileRock: 0
-  ProbablySpawnTileFreeze: 0
-  ProbablySpawnTileFake: 0
-  ProbablySpawnTileCloud: 0
-  ProbablySpawnSpikes: 0
-  ProbablySpawnExplosion: 0
-  ProbablySpawnMicelanios: 0
-  tileNormal: {fileID: 4445062900454413554, guid: 9c8d5ad3ec917314ab32a794ba2eefed,
+  groundBasic: {fileID: 4445062900454413554, guid: 9c8d5ad3ec917314ab32a794ba2eefed,
     type: 3}
-  tileRock: {fileID: 7187949188770584654, guid: affd7e54362d6824f9bc2b2d62262d4b,
+  groundHard: {fileID: 4445062900454413554, guid: 9c8d5ad3ec917314ab32a794ba2eefed,
     type: 3}
-  tileFreeze: {fileID: 7187949188770584654, guid: 61cafdbb599a8c44a8861200c2f3c1af,
+  groundSoft: {fileID: 7187949188770584654, guid: 61cafdbb599a8c44a8861200c2f3c1af,
     type: 3}
-  tileFake: {fileID: 7187949188770584654, guid: df6e92830b5d6904d9d33dbe353cca09,
-    type: 3}
-  tileCloud: {fileID: 4065346390276830495, guid: fb243c10c0f68fc4ba48b6118743d89e,
-    type: 3}
-  objectSpikes: {fileID: 0}
-  objectExplosion: {fileID: 0}
-  objectMicelanio: {fileID: 0}
+  groundHazard: {fileID: 0}
+  middleHazard: {fileID: 0}
+  middleDecor1: {fileID: 0}
+  middleDecor2: {fileID: 0}
 --- !u!4 &1166149248
 Transform:
   m_ObjectHideFlags: 0
