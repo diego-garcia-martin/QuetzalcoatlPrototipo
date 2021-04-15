@@ -481,14 +481,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b43fc88e6a90cb4ea8132e6005fdbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GroundSize: 60
   groundBasic: {fileID: 4445062900454413554, guid: 9c8d5ad3ec917314ab32a794ba2eefed,
     type: 3}
-  groundHard: {fileID: 4445062900454413554, guid: 9c8d5ad3ec917314ab32a794ba2eefed,
+  groundHard: {fileID: 7187949188770584654, guid: affd7e54362d6824f9bc2b2d62262d4b,
     type: 3}
   groundSoft: {fileID: 7187949188770584654, guid: 61cafdbb599a8c44a8861200c2f3c1af,
     type: 3}
-  groundHazard: {fileID: 0}
-  middleHazard: {fileID: 0}
+  groundHazard: {fileID: 4065346390276830495, guid: fb243c10c0f68fc4ba48b6118743d89e,
+    type: 3}
+  middleHazard: {fileID: 2592527517727310746, guid: 8ea5d776d4fded74e8374c9814f7c80f,
+    type: 3}
   middleDecor1: {fileID: 0}
   middleDecor2: {fileID: 0}
 --- !u!4 &1166149248
