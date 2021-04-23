@@ -93,12 +93,30 @@ public class sc_MapGenerator : MonoBehaviour
     public GameObject middleHazard;
     public GameObject middleDecor1;
     public GameObject middleDecor2;
+    // Lista con los tipos de suelo
+    GameObject[] groundLiszt = {groundBasic, groundHard, groundSoft, groundHazard};
     // Variables de constantes a tomar en cuenta para el generador
     private const int LINES_PER_SCREEN = 18;
     private const int TILES_PER_LINE = 20;
     private const int LINE_START = -10;
     private const int BOTTOM_LIMIT = -7;
 
+    GameObject selectRandomGround()
+    {
+        int selection = Random.Range(0, 3);
+        switch(selection){
+            case 0:
+                return groundBasic;
+            case 1:
+                return groundHard;
+            case 2:4
+                return groundSoft;
+            case 3:
+                return groundHazard;
+            default:
+                return groundBasic;
+        }
+    }
 
     //Funcion para iniciar la primera pantalla, para que no comience vacio el juego
     void initFirstScreen()
@@ -139,69 +157,64 @@ public class sc_MapGenerator : MonoBehaviour
     {
         // Index we are working on
         int index = 0;
-        // We determine the number of platforms in this line
-        int platforms = Random.Range(1, 10);
-        // Weight for different ground types, will change depending on what is being created
-        int basicWeight = 5;
-        int hardWeight = 7;
-        int softWeight = 9;
-        int hazardWeight = 10;
-
-        while (platforms > 0)
+        
+        while (index <= TILES_PER_LINE)
         {
-            basicWeight = 5;
-            hardWeight = 7;
-            softWeight = 9;
-            hazardWeight = 10;
-            for(; index < TILES_PER_LINE; index++)
-            {
-                if (Random.Range(1, 100) < GroundPopulation)
-                {
+            index += Random.Range(1, 5);
+            int blocksize = Random.Range(1, 5);
+            GameObject baseGround = selectRandomGround();
+            switch(blocksize){
+                case 1:
+                    line.AddObject(baseGround, new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                    index++;
                     break;
-                }
-                if (index == TILES_PER_LINE - 1)
-                {
-                    platforms = 0;
-                }
-            }
-
-            for(; index < TILES_PER_LINE; index++)
-            {
-                int tileSelection =Random.Range(0, 10);
-                if (tileSelection <= basicWeight){
-                    line.AddObject(groundBasic, new Vector2(index + LINE_START, lineNumber + BOTTOM_LIMIT));
-                }
-                else if (tileSelection <= hardWeight)
-                {
-                    line.AddObject(groundHard, new Vector2(index + LINE_START, lineNumber + BOTTOM_LIMIT));
-                }
-                else if (tileSelection <= softWeight)
-                {
-                    line.AddObject(groundSoft, new Vector2(index + LINE_START, lineNumber + BOTTOM_LIMIT));
-                    basicWeight = 2;
-                    hardWeight = 3;
-                    softWeight = 8;
-                    hazardWeight = 10;
-                }
-                else if (tileSelection <= hazardWeight)
-                {
-                    line.AddObject(groundHazard, new Vector2(index + LINE_START, lineNumber + BOTTOM_LIMIT));
-                    basicWeight = 1;
-                    hardWeight = 2;
-                    softWeight = 5;
-                    hazardWeight = 10;
-                }
-                if (Random.Range(1, 100) < 100 - GroundSize)
-                {
+                case 2:
+                    line.AddObject(baseGround, new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                    index++;
+                    if (Random.Range(0, 1) == 0)
+                    {
+                        line.AddObject(baseGround, new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                        index++;
+                    }
+                    else
+                    {
+                        line.AddObject(groundBasic, new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                        index++;
+                    }
                     break;
-                }
-                if (index == TILES_PER_LINE - 1)
-                {
-                    platforms = 0;
-                }
+                case 3:
+                    line.AddObject(baseGround, new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                    index++;
+                    line.AddObject(selectRandomGround(), new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                    index++;
+                    line.AddObject(baseGround, new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                    index++;
+                    break;
+                case 4:
+                    GameObject innerGround = selectRandomGround();
+                    line.AddObject(baseGround, new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                    index++;
+                    line.AddObject(innerGround, new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                    index++;
+                    line.AddObject(innerGround, new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                    index++;
+                    line.AddObject(baseGround, new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                    index++;
+                    break;
+                case 5:
+                    GameObject innerGround2 = selectRandomGround();
+                    line.AddObject(baseGround, new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                    index++;
+                    line.AddObject(innerGround2, new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                    index++;
+                    line.AddObject(baseGround, new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                    index++;
+                    line.AddObject(innerGround2, new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                    index++;
+                    line.AddObject(baseGround, new Vector2(index, lineNumber + BOTTOM_LIMIT));
+                    index++;
+                    break;
             }
-
-            platforms--;
         }
     }
 
@@ -221,7 +234,7 @@ public class sc_MapGenerator : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+      void Start()
     {
         _mapMatrix = new List<_line>();
         initFirstScreen();
