@@ -481,7 +481,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b43fc88e6a90cb4ea8132e6005fdbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GroundSize: 60
+  GapSize: 8
+  HazardChance: 10
+  LineSpeed: 0.5
   groundBasic: {fileID: 4445062900454413554, guid: 9c8d5ad3ec917314ab32a794ba2eefed,
     type: 3}
   groundHard: {fileID: 7187949188770584654, guid: affd7e54362d6824f9bc2b2d62262d4b,
