@@ -13,7 +13,7 @@ public class sc_MapGenerator : MonoBehaviour
         high,
         end,
     };
-    struct _line{
+    class _line{
         public List<GameObject> _lineObjects;
         public _lineType lineType;
         public float linePos;
@@ -49,7 +49,7 @@ public class sc_MapGenerator : MonoBehaviour
 
         public void RemoveEmpty()
         {
-        for (int index = 0; index < _lineObjects.Count; index++)
+            for (int index = _lineObjects.Count - 1; index >= 0; index--)
             {
                 if (_lineObjects[index] == null)
                 {
@@ -60,29 +60,24 @@ public class sc_MapGenerator : MonoBehaviour
 
         public void EmptyLine()
         {
-            RemoveEmpty();
-            for (int index = 0; index < _lineObjects.Count; index++)
+            for (int index = _lineObjects.Count - 1; index >= 0; index--)
             {
-                if (_lineObjects[index])
+                if (_lineObjects[index] != null)
                 {
                     GameObject.Destroy(_lineObjects[index]);
-                    _lineObjects.RemoveAt(index);
                 }
+                _lineObjects.RemoveAt(index);
             }
         }
 
         public void MoveLineDown(float movY)
         {
-            float movement = movY * Time.deltaTime;
+            linePos = linePos - (movY * Time.deltaTime);
             RemoveEmpty();
-            for (int index = 0; index < _lineObjects.Count; index++)
+            foreach (GameObject tile in _lineObjects)
             {
-                if (_lineObjects[index])
-                {
-                    _lineObjects[index].transform.position = new Vector3(_lineObjects[index].transform.position.x, _lineObjects[index].transform.position.y - movement, 0);
-                    linePos = _lineObjects[index].transform.position.y;
-                }
-            } 
+                tile.transform.position = new Vector3(tile.transform.position.x, linePos, 0);
+            }
         }
     };
 
@@ -164,7 +159,7 @@ public class sc_MapGenerator : MonoBehaviour
         // Index we are working on
         int index = 0;
         
-        while (index <= TILES_PER_LINE)
+        while (index < TILES_PER_LINE && (index + LINE_START <= 10))
         {
             index += Random.Range(Mathf.FloorToInt(GapSize/2 - 1), GapSize);
             int blocksize = Random.Range(1, 5);
@@ -182,7 +177,7 @@ public class sc_MapGenerator : MonoBehaviour
                 case 2:
                     line.AddObject(baseGround, new Vector2(index + LINE_START, line.linePos));
                     index++;
-                    if (Random.Range(0, 1) == 0)
+                    if (Random.Range(0, 2) == 0)
                     {
                         line.AddObject(baseGround, new Vector2(index + LINE_START, line.linePos));
                         index++;
@@ -198,7 +193,7 @@ public class sc_MapGenerator : MonoBehaviour
                 case 3:
                     line.AddObject(baseGround, new Vector2(index + LINE_START, line.linePos));
                     index++;
-                    if (Random.Range(0, 1) == 0)
+                    if (Random.Range(0, 2) == 0)
                     {
                         line.AddObject(baseGround, new Vector2(index + LINE_START, line.linePos));
                         index++;
@@ -214,7 +209,7 @@ public class sc_MapGenerator : MonoBehaviour
                     GameObject innerGround = selectRandomGround();
                     line.AddObject(baseGround, new Vector2(index + LINE_START, line.linePos));
                     index++;
-                    if (Random.Range(0, 1) == 0)
+                    if (Random.Range(0, 2) == 0)
                     {
                         line.AddObject(baseGround, new Vector2(index + LINE_START, line.linePos));
                         index++;
@@ -233,7 +228,7 @@ public class sc_MapGenerator : MonoBehaviour
                 case 5:
                     line.AddObject(baseGround, new Vector2(index + LINE_START, line.linePos));
                     index++;
-                    if (Random.Range(0, 1) == 0)
+                    if (Random.Range(0, 2) == 0)
                     {
                         line.AddObject(baseGround, new Vector2(index + LINE_START, line.linePos));
                         index++;
@@ -244,7 +239,7 @@ public class sc_MapGenerator : MonoBehaviour
                     }
                     line.AddObject(baseGround, new Vector2(index + LINE_START, line.linePos));
                     index++;
-                    if (Random.Range(0, 1) == 0)
+                    if (Random.Range(0, 2) == 0)
                     {
                         line.AddObject(baseGround, new Vector2(index + LINE_START, line.linePos));
                         index++;
@@ -277,15 +272,15 @@ public class sc_MapGenerator : MonoBehaviour
 
     void moveMapDown()
     {
-        foreach (_line line in _mapMatrix)
+        for (int index = _mapMatrix.Count - 1; index >= 0; index--)
         {
-            line.MoveLineDown(LineSpeed);
-            if (line.linePos < BOTTOM_LIMIT - 1)
+            _mapMatrix[index].MoveLineDown(LineSpeed);
+            if (_mapMatrix[index].linePos < BOTTOM_LIMIT - 1)
             {
-                line.EmptyLine();
-                _mapMatrix.Add(new _line(line.lineType, LINES_PER_SCREEN + BOTTOM_LIMIT));
-                generateLine(_mapMatrix[_mapMatrix.Count - 1], _mapMatrix.Count - 1);
-                _mapMatrix.Remove(line);
+                _mapMatrix.Add(new _line(_mapMatrix[index].lineType, LINES_PER_SCREEN + BOTTOM_LIMIT));
+                generateLine(_mapMatrix[_mapMatrix.Count-1], _mapMatrix.Count-1);
+                _mapMatrix[index].EmptyLine();
+                _mapMatrix.RemoveAt(index);
             }
         }
     }
