@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f886fd31f8023c4f9ee7e124667141e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameState: 0
 --- !u!4 &1007314343
 Transform:
   m_ObjectHideFlags: 0
@@ -494,8 +495,14 @@ MonoBehaviour:
     type: 3}
   middleHazard: {fileID: 2592527517727310746, guid: 8ea5d776d4fded74e8374c9814f7c80f,
     type: 3}
-  middleDecor1: {fileID: 0}
-  middleDecor2: {fileID: 0}
+  middleDecor1: {fileID: 7820137262106631563, guid: f224049cd7b446442bcf2546cf7ad741,
+    type: 3}
+  middleDecor2: {fileID: 5855150731759433175, guid: 54bd564106dfb244d913a804ff4cd483,
+    type: 3}
+  middleDecor3: {fileID: 8300377244596411231, guid: 3303984b101ab374088314a0a366a176,
+    type: 3}
+  middleDecor4: {fileID: 8242417711849468243, guid: 90f0e469971c95149a9d1e4a03a80fb9,
+    type: 3}
 --- !u!4 &1166149248
 Transform:
   m_ObjectHideFlags: 0

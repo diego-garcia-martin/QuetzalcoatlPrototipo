@@ -96,6 +96,8 @@ public class sc_MapGenerator : MonoBehaviour
     public GameObject middleHazard;
     public GameObject middleDecor1;
     public GameObject middleDecor2;
+    public GameObject middleDecor3;
+    public GameObject middleDecor4;
     // Variables de constantes a tomar en cuenta para el generador
     private const int LINES_PER_SCREEN = 20;
     private const int TILES_PER_LINE = 30;
@@ -260,11 +262,29 @@ public class sc_MapGenerator : MonoBehaviour
         for(int index = 0; index < _mapMatrix[lineNumber - 1]._lineObjects.Count; index++)
         {
             GameObject prevLine = _mapMatrix[lineNumber - 1]._lineObjects[index];
-            if (prevLine != null)
+            if (prevLine != null && (prevLine.GetComponent<sc_tile_ID>().id == "normal" || prevLine.GetComponent<sc_tile_ID>().id == "hard"))
             {
-                if ((Random.Range(0, 100) < HazardChance) && (prevLine.GetComponent<sc_tile_ID>().id == "normal" || prevLine.GetComponent<sc_tile_ID>().id == "hard"))
+                if (Random.Range(0, 100) < HazardChance)
                 {
                     line.AddObject(middleHazard, new Vector2(prevLine.transform.position.x, prevLine.transform.position.y + 1));
+                }
+                else if (Random.Range(0, 100) < 30)
+                {
+                    int num = Random.Range(0, 4);
+                    if (num == 0)
+                    {
+                        line.AddObject(middleDecor1, new Vector2(prevLine.transform.position.x, prevLine.transform.position.y + 1));
+                    }
+                    else if (num == 1){
+                        line.AddObject(middleDecor2, new Vector2(prevLine.transform.position.x, prevLine.transform.position.y + 1));
+                    }
+                    else if (num == 2)
+                    {
+                        line.AddObject(middleDecor3, new Vector2(prevLine.transform.position.x, prevLine.transform.position.y + 1));
+                    }
+                    else{
+                        line.AddObject(middleDecor4, new Vector2(prevLine.transform.position.x, prevLine.transform.position.y + 1));
+                    }
                 }
             }
         }
