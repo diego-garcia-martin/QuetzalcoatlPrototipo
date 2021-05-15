@@ -272,7 +272,7 @@ public class sc_MapGenerator : MonoBehaviour
                 {
                     line.AddObject(middleHazard, new Vector2(prevLine.transform.position.x, prevLine.transform.position.y + 1));
                 }
-                else if (Random.Range(0, 100) < 30)
+                else if (Random.Range(0, 100) < 60)
                 {
                 
                     int num = Random.Range(0, 5);

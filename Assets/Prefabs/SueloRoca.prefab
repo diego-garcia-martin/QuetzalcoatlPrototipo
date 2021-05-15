@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3196416857516880351}
   - component: {fileID: 8192394163854146120}
   - component: {fileID: -4465193148716974277}
+  - component: {fileID: -172750086808984287}
   m_Layer: 0
   m_Name: SueloRoca
   m_TagString: Ground
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: -1716678075
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5924051787751492106, guid: 6174ef98ab2f3084d91d42b8a2c52911,
+  m_Sprite: {fileID: 8854721100142635791, guid: cb538ea696dfc53449acbc066d6b523b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -123,3 +124,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: hard
+--- !u!114 &-172750086808984287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7187949188770584654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b515980a5aa5b94285d676108dd83e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sp1: {fileID: 8854721100142635791, guid: cb538ea696dfc53449acbc066d6b523b, type: 3}
+  sp2: {fileID: -3404333073758965602, guid: cb538ea696dfc53449acbc066d6b523b, type: 3}
+  sp3: {fileID: -7617660776806165463, guid: cb538ea696dfc53449acbc066d6b523b, type: 3}
+  sp4: {fileID: 3860030603059924033, guid: cb538ea696dfc53449acbc066d6b523b, type: 3}
