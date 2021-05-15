@@ -99,6 +99,7 @@ public class sc_MapGenerator : MonoBehaviour
     public GameObject middleDecor3;
     public GameObject middleDecor4;
     public GameObject middleDecor5;
+    public GameObject middleDecor6;
     // Variables de constantes a tomar en cuenta para el generador
     private const int LINES_PER_SCREEN = 20;
     private const int TILES_PER_LINE = 30;
@@ -293,6 +294,9 @@ public class sc_MapGenerator : MonoBehaviour
                     else if ((prevLineSecond.GetComponent<sc_tile_ID>().id == "normal" || prevLineSecond.GetComponent<sc_tile_ID>().id == "hard")  && prevLine.transform.position.x == prevLineSecond.transform.position.x -1)
                     {
                         line.AddObject(middleDecor5, new Vector2(prevLine.transform.position.x, prevLine.transform.position.y + 1));
+                    }
+                    else{
+                        line.AddObject(middleDecor6, new Vector2(prevLine.transform.position.x, prevLine.transform.position.y + 1));
                     }
                     
                 }
