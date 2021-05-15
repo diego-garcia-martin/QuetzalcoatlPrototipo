@@ -503,6 +503,10 @@ MonoBehaviour:
     type: 3}
   middleDecor4: {fileID: 8242417711849468243, guid: 90f0e469971c95149a9d1e4a03a80fb9,
     type: 3}
+  middleDecor5: {fileID: 2384214086675486487, guid: c189bb3e0fe8cb34ba83fbf665d2b068,
+    type: 3}
+  middleDecor6: {fileID: 99822486810318078, guid: 4c16cb2a8456b6443b58c2b07d009510,
+    type: 3}
 --- !u!4 &1166149248
 Transform:
   m_ObjectHideFlags: 0
