@@ -94,6 +94,7 @@ public class sc_MapGenerator : MonoBehaviour
     public GameObject groundSoft;
     public GameObject groundHazard;
     public GameObject middleHazard;
+    public GameObject middleHazard2;
     public GameObject middleDecor1;
     public GameObject middleDecor2;
     public GameObject middleDecor3;
@@ -270,7 +271,15 @@ public class sc_MapGenerator : MonoBehaviour
             {
                 if (Random.Range(0, 100) < HazardChance)
                 {
-                    line.AddObject(middleHazard, new Vector2(prevLine.transform.position.x, prevLine.transform.position.y + 1));
+                    if (Random.Range(0, 100) > 50)
+                    {
+                        line.AddObject(middleHazard, new Vector2(prevLine.transform.position.x, prevLine.transform.position.y + 1));
+                    }
+                    else if ((prevLineSecond != null)  && prevLine.transform.position.x == prevLineSecond.transform.position.x -1)
+                    {
+                        GameObject enemies = GameObject.FindGameObjectWithTag("EnemySpawner");
+                        enemies.GetComponent<sc_enemy_spawner>().l_enemies.Add(Instantiate(middleHazard2, new Vector3(prevLine.transform.position.x, prevLine.transform.position.y + 1, 0), Quaternion.identity));
+                    }
                 }
                 else if (Random.Range(0, 100) < 60)
                 {
@@ -291,7 +300,7 @@ public class sc_MapGenerator : MonoBehaviour
                     {
                         line.AddObject(middleDecor4, new Vector2(prevLine.transform.position.x, prevLine.transform.position.y + 1));
                     }
-                    else if ((prevLineSecond.GetComponent<sc_tile_ID>().id == "normal" || prevLineSecond.GetComponent<sc_tile_ID>().id == "hard")  && prevLine.transform.position.x == prevLineSecond.transform.position.x -1)
+                    else if (prevLineSecond != null && (prevLineSecond.GetComponent<sc_tile_ID>().id == "normal" || prevLineSecond.GetComponent<sc_tile_ID>().id == "hard")  && prevLine.transform.position.x == prevLineSecond.transform.position.x -1)
                     {
                         line.AddObject(middleDecor5, new Vector2(prevLine.transform.position.x, prevLine.transform.position.y + 1));
                     }

@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 857482205}
   m_Layer: 0
   m_Name: EnemySpawner
-  m_TagString: Untagged
+  m_TagString: EnemySpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -494,6 +494,8 @@ MonoBehaviour:
   groundHazard: {fileID: 4065346390276830495, guid: fb243c10c0f68fc4ba48b6118743d89e,
     type: 3}
   middleHazard: {fileID: 2592527517727310746, guid: 8ea5d776d4fded74e8374c9814f7c80f,
+    type: 3}
+  middleHazard2: {fileID: 7002170657124674402, guid: 52cd19a63786d6a49b335ab030df86cc,
     type: 3}
   middleDecor1: {fileID: 7820137262106631563, guid: f224049cd7b446442bcf2546cf7ad741,
     type: 3}

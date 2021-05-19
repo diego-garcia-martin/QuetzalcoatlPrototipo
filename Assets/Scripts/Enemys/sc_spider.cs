@@ -48,7 +48,7 @@ public class sc_spider : MonoBehaviour
 
     void walk()
     {
-        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 2f);
+        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.5f);
         if(groundInfo.collider == false)
         {
             if (walkRight)
