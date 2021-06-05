@@ -87,11 +87,13 @@ public class sc_spider : MonoBehaviour
                     changeAnimation(ATTACK);
                     isWalking = false;
                     segundos = 1;
+                    sc_audioManager.PlaySound("spiderAttack");
                 }
             }
             else{
                 isWalking = true;
                 changeAnimation(WALK);
+                sc_audioManager.PlaySound("spiderWalk");
             }
             yield return new WaitForSeconds(segundos);
         }

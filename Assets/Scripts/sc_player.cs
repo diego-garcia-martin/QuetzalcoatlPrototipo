@@ -119,6 +119,7 @@ public class sc_player : MonoBehaviour
             grounded = false;
             touchEnable = false;
             sliding = false;
+            sc_audioManager.PlaySound("jump");
         }
 
         dirx = Input.acceleration.x * moveSpeed * TOUCHMOVEADJUST;

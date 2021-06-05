@@ -128,6 +128,7 @@ public class sc_pichoncin : MonoBehaviour
                     r2d.AddForce(new Vector2(Random.Range(-300, 300), 600));
                     isFlying = true;
                     isGrounded = false;
+                    sc_audioManager.PlaySound("aleteoPichon");
                 }
                 else
                 {
@@ -139,6 +140,7 @@ public class sc_pichoncin : MonoBehaviour
                 if (Random.Range(0, 10) < 7)
                 {
                     r2d.AddForce(new Vector2(Random.Range(-300, 300), 0));
+                    sc_audioManager.PlaySound("aleteoPichon");
                 }
                 else
                 {

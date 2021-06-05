@@ -124,6 +124,10 @@ public class sc_aguilucho : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         changeAnimation(IDLE);
+        if (collision.gameObject.tag == "Player")
+        {
+            lifetime = 0;
+        }
     }
 
     private void changeAnimation(string newAnim)
