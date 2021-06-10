@@ -805,7 +805,7 @@ MonoBehaviour:
   GapSize: 6
   HazardChance: 10
   LineSpeed: 1
-  groundBasic: {fileID: 4445062900454413554, guid: 9c8d5ad3ec917314ab32a794ba2eefed,
+  groundBasic: {fileID: 4382807310142246108, guid: 9c8d5ad3ec917314ab32a794ba2eefed,
     type: 3}
   groundHard: {fileID: 7187949188770584654, guid: affd7e54362d6824f9bc2b2d62262d4b,
     type: 3}
