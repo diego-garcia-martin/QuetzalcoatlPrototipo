@@ -5,7 +5,7 @@ using UnityEngine;
 public class sc_player : MonoBehaviour
 {
     //La vida del personaje
-    public float health;
+    public int health;
     private const string IDLE = "Anim_Quetzalcoatl_idle";
     private const string RUN = "Anim_Quetzalcoatl_run";
     private const string JUMP = "Anim_Quetzalcoatl_jump";
@@ -79,12 +79,10 @@ public class sc_player : MonoBehaviour
         }
 
         //checamos las colisiones para bajar la vida al jugador
-        if(!debugMode)
+        if (collision.gameObject.tag == "Enemy" && health >= 0)
         {
-            if (collision.gameObject.tag == "Enemy")
-            {
-                health -= 1;
-            }
+            health -= 1;
+            GameObject.Destroy(collision.gameObject);
         }
     }
 

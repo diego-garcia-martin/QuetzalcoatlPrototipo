@@ -15,7 +15,7 @@ public class sc_audioManager : MonoBehaviour
         jump3 = Resources.Load<AudioClip>("SFX/Jump3");
         pichonAleteo = Resources.Load<AudioClip>("SFX/aleteoPichon");
         aguilaAleteo = Resources.Load<AudioClip>("SFX/aleteoAguila");
-        spiderWalk = Resources.Load<AudioClip>("SFX/spiderWalk");
+        spiderWalk = Resources.Load<AudioClip>("SFX/InsectWalk");
         spiderAttack = Resources.Load<AudioClip>("SFX/spiderAttack");
     }
 

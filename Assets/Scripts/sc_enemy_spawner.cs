@@ -23,7 +23,7 @@ public class sc_enemy_spawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         elapsedTime += Time.deltaTime;
         if (elapsedTime > spawnTimer && l_enemies.Count < MAX_ENEMY_COUNT)
@@ -36,13 +36,19 @@ public class sc_enemy_spawner : MonoBehaviour
             }
         }
 
-        for(int index = 0; index < l_enemies.Count; index ++)
+        for(int index = l_enemies.Count -1; index >= 0; index --)
         {
+            if (l_enemies[index] == null)
+            {
+                l_enemies.RemoveAt(index);
+                continue;
+            }
             if (l_enemies[index].transform.position.y < MIN_POS_IN_Y)
             {
                 GameObject.Destroy(l_enemies[index]);
                 l_enemies.RemoveAt(index);
             }
         }
+
     }
 }
