@@ -39,7 +39,7 @@ public class sc_player : MonoBehaviour
         changeAnimation(IDLE);
         xspeed = 0;
         sliding = false;
-        health = 100;
+        health = 4;
     }
 
     // Update is called once per frame
@@ -83,7 +83,7 @@ public class sc_player : MonoBehaviour
         {
             if (collision.gameObject.tag == "Enemy")
             {
-                health -= 10;
+                health -= 1;
             }
         }
     }
