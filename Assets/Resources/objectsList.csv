@@ -1,0 +1,6 @@
+Types,Tile,Floor,Misc,,,,,,,
+Sce/Obj,TileGround,TileRock,TileFake,TileFrezee,TileCloud,TileGold,FloorPikes,FloorExplosion,FloorTrampoline,MiscMiscelanos
+Jungle,1,2,3,,,,1,1,1,1
+Horizon,,1,2,3,4,,1,1,1,1
+Sky,,,3,1,2,,1,1,1,1
+Space,,2,,,,1,1,1,1,1

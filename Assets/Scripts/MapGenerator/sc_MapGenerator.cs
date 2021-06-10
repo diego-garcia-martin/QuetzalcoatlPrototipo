@@ -121,13 +121,13 @@ public class sc_MapGenerator : MonoBehaviour
                         int tileType = Random.Range(0, 2);
                         switch(tileType){
                             case 0:
-                                line.AddObject(groundBasic, new Vector2(LINE_START + i, lineNumber - BOTTOM_LIMIT));
+                                line.AddObject(groundBasic, new Vector2(LINE_START + i, lineNumber + BOTTOM_LIMIT));
                                 break;
                             case 1:
-                                line.AddObject(groundHard, new Vector2(LINE_START + i, lineNumber - BOTTOM_LIMIT));
+                                line.AddObject(groundHard, new Vector2(LINE_START + i, lineNumber + BOTTOM_LIMIT));
                                 break;
                             case 2:
-                                line.AddObject(groundSoft, new Vector2(LINE_START + i, lineNumber - BOTTOM_LIMIT));
+                                line.AddObject(groundSoft, new Vector2(LINE_START + i, lineNumber + BOTTOM_LIMIT));
                                 break;
                             default:
                                 break;
