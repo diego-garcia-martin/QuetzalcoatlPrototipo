@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3196416857516880351}
   - component: {fileID: 8192394163854146120}
   - component: {fileID: 1350014721}
+  - component: {fileID: 5280895612445452756}
+  - component: {fileID: -1815541162290789890}
   m_Layer: 0
   m_Name: SueloFreeze
   m_TagString: Ice
@@ -69,11 +71,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1358633873
-  m_SortingLayer: 1
+  m_SortingLayerID: -1716678075
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6398246507652265392, guid: 6174ef98ab2f3084d91d42b8a2c52911,
-    type: 3}
+  m_Sprite: {fileID: 399288222009177488, guid: 118cd43b786e8bf47b724e42754c527f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,3 +130,32 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &5280895612445452756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7187949188770584654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753a25b5d099c0d44a5758a2f78fa3fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: soft
+--- !u!114 &-1815541162290789890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7187949188770584654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b515980a5aa5b94285d676108dd83e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sp1: {fileID: 399288222009177488, guid: 118cd43b786e8bf47b724e42754c527f, type: 3}
+  sp2: {fileID: -5377770567661792628, guid: 118cd43b786e8bf47b724e42754c527f, type: 3}
+  sp3: {fileID: 5244649222491200624, guid: 118cd43b786e8bf47b724e42754c527f, type: 3}
+  sp4: {fileID: -1365741301562555203, guid: 118cd43b786e8bf47b724e42754c527f, type: 3}

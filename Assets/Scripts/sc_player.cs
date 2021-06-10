@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class sc_player : MonoBehaviour
 {
+    //La vida del personaje
+    public float health;
     private const string IDLE = "Anim_Quetzalcoatl_idle";
     private const string RUN = "Anim_Quetzalcoatl_run";
     private const string JUMP = "Anim_Quetzalcoatl_jump";
@@ -37,19 +39,21 @@ public class sc_player : MonoBehaviour
         changeAnimation(IDLE);
         xspeed = 0;
         sliding = false;
+        health = 100;
     }
 
     // Update is called once per frame
     void Update()
     {
         //Esto es para pruebas, si se sale de la pantalla el mono que vuelva a entrar y mostrar las velocidades y valores de interes
-        if(debugMode){
+        if(debugMode && tr.position.y < OUTOFBOUNDS){
             //debugInfo();
-            if(tr.position.y < OUTOFBOUNDS)
-            {
-                tr.SetPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
-                r2d.velocity = new Vector2(0, 0);
-            }
+            tr.SetPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
+            r2d.velocity = new Vector2(0, 0);
+        }
+        else if (tr.position.y < OUTOFBOUNDS)
+        {
+            health = 0;
         }
 
         updateMovement();
@@ -72,6 +76,15 @@ public class sc_player : MonoBehaviour
         else
         {
             sliding = false;
+        }
+
+        //checamos las colisiones para bajar la vida al jugador
+        if(!debugMode)
+        {
+            if (collision.gameObject.tag == "Enemy")
+            {
+                health -= 10;
+            }
         }
     }
 
@@ -106,6 +119,7 @@ public class sc_player : MonoBehaviour
             grounded = false;
             touchEnable = false;
             sliding = false;
+            sc_audioManager.PlaySound("jump");
         }
 
         dirx = Input.acceleration.x * moveSpeed * TOUCHMOVEADJUST;

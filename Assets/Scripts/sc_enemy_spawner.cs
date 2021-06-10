@@ -9,7 +9,7 @@ public class sc_enemy_spawner : MonoBehaviour
     private float elapsedTime;
     public GameObject enemy1;
     public GameObject enemy2;
-    private List<GameObject> l_enemies;
+    public List<GameObject> l_enemies;
     private const float MIN_POS_IN_Y = -6;
     private const float MAX_POS_IN_Y = 6;
     private const float MIN_POS_IN_X = -8;
@@ -38,7 +38,7 @@ public class sc_enemy_spawner : MonoBehaviour
 
         for(int index = 0; index < l_enemies.Count; index ++)
         {
-            if (l_enemies[index].transform.position.y < MIN_POS_IN_Y || l_enemies[index].transform.position.y > MAX_POS_IN_Y)
+            if (l_enemies[index].transform.position.y < MIN_POS_IN_Y)
             {
                 GameObject.Destroy(l_enemies[index]);
                 l_enemies.RemoveAt(index);
