@@ -8,7 +8,6 @@ public class sc_pichoncin : MonoBehaviour
     private Animator animator;
     private Rigidbody2D r2d;
     private Transform tr;
-    private BoxCollider2D col;
     private Camera cam;
     private Vector3 limitsMin;
     private Vector3 limitsMax;
@@ -28,7 +27,6 @@ public class sc_pichoncin : MonoBehaviour
         animator = GetComponent<Animator>();
         r2d = GetComponent<Rigidbody2D>();
         tr = GetComponent<Transform>();
-        col = GetComponent<BoxCollider2D>();
         cam = Camera.main;
         limitsMin = cam.ScreenToWorldPoint(new Vector3(0, 0, tr.position.z));
         limitsMax = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, tr.position.z));
@@ -56,14 +54,6 @@ public class sc_pichoncin : MonoBehaviour
         {
             if (r2d.velocity.x < 0) tr.localScale = new Vector3(-1, 1, 1);
             else tr.localScale = new Vector3(1, 1, 1);
-        }
-        if (r2d.velocity.y > 0)
-        {
-            col.enabled = false;
-        }
-        if (r2d.velocity.y <= 0)
-        {
-            col.enabled = true;
         }
 
         if (tr.position.x >= limitsMax.x - 1)

@@ -11,7 +11,6 @@ public class sc_aguilucho : MonoBehaviour
     public float flightSpeed;
     public float attackSpeed;
     public float lifetime;
-    private BoxCollider2D col;
     private float cooldown;
     //Variables relacionadas con las animaciones del personaje
     private Animator animator;
@@ -25,7 +24,6 @@ public class sc_aguilucho : MonoBehaviour
         animator = GetComponent<Animator>();
         r2d = GetComponent<Rigidbody2D>();
         tr = GetComponent<Transform>();
-        col = GetComponent<BoxCollider2D>();
         changeAnimation(IDLE);
     }
 
@@ -38,7 +36,6 @@ public class sc_aguilucho : MonoBehaviour
         }
         else
         {
-            col.enabled = false;
             tr.position = Vector3.MoveTowards(tr.position, new Vector3(0, -20, 0), (flightSpeed * Time.deltaTime));
         }
         lifetime = lifetime - Time.deltaTime;
@@ -54,15 +51,6 @@ public class sc_aguilucho : MonoBehaviour
         if (cooldown > 0)
         {
             cooldown = cooldown - Time.deltaTime;
-        }
-
-        if (currentAnim == IDLE)
-        {
-            col.enabled = false;
-        }
-        else
-        {
-            col.enabled = true;
         }
 
         //Decidimos si vamos a atacar

@@ -78,11 +78,21 @@ public class sc_player : MonoBehaviour
             sliding = false;
         }
 
-        //checamos las colisiones para bajar la vida al jugador
-        if (collision.gameObject.tag == "Enemy" && health >= 0)
+        //checamos las colisiones con los enemigos
+        if (collision.gameObject.tag == "Enemy")
+        {
+            
+        }
+        if (collision.gameObject.tag == "HurtBox" && health >= 0)
+        {
+            if(tr.transform.position.x > collision.gameObject.transform.position.x) collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-5, 0));
+            else collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(5, 0));
+        }
+        if (collision.gameObject.tag == "HitBox")
         {
             health -= 1;
-            GameObject.Destroy(collision.gameObject);
+            if (tr.transform.position.x > collision.gameObject.transform.position.x) r2d.AddForce(new Vector2(5, 0));
+            else r2d.AddForce(new Vector2(-5, 0));
         }
     }
 

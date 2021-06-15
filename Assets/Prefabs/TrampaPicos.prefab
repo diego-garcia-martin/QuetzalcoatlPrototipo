@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2592527517727310749}
   m_Layer: 0
   m_Name: TrampaPicos
-  m_TagString: Enemy
+  m_TagString: HitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
