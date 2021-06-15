@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Ice
   - EnemySpawner
+  - HitBox
+  - HurtBox
   layers:
   - Default
   - TransparentFX
