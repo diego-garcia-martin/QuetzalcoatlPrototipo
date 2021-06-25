@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff308462343ada4f82c7b809ac74a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 5
+  spawnTimer: 7
   enemy1: {fileID: 6822974493449894603, guid: 782846d6c196a92478f597cef1ee4a28, type: 3}
   enemy2: {fileID: 515417424503200480, guid: d02c92e7490f4fe40b292175c118b3e0, type: 3}
   l_enemies: []
@@ -803,7 +803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GapSize: 6
-  HazardChance: 10
+  HazardChance: 7
   LineSpeed: 1
   groundBasic: {fileID: 4382807310142246108, guid: 9c8d5ad3ec917314ab32a794ba2eefed,
     type: 3}
@@ -909,6 +909,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088957232428360604, guid: f697014f55deb3449b5ace98f0d0a539,
+        type: 3}
+      propertyPath: MAXSPEED
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088957232428360604, guid: f697014f55deb3449b5ace98f0d0a539,
+        type: 3}
+      propertyPath: jumpForce
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088957232428360604, guid: f697014f55deb3449b5ace98f0d0a539,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f697014f55deb3449b5ace98f0d0a539, type: 3}

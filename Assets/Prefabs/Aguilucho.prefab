@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flightSpeed: 2
   attackSpeed: 4
-  lifetime: 15
+  lifetime: 10
 --- !u!50 &5290977618967871571
 Rigidbody2D:
   serializedVersion: 4
@@ -283,7 +283,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.37445414, y: -0.10362244}
+  m_Offset: {x: -0.6123149, y: -0.10362244}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -294,7 +294,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2967372, y: 1.0847821}
+  m_Size: {x: 1.7724587, y: 1.0847821}
   m_EdgeRadius: 0
 --- !u!1 &1527621840263439288
 GameObject:
@@ -340,7 +340,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.7230028, y: -0.38858438}
+  m_Offset: {x: 0.85253096, y: -0.47572148}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -351,5 +351,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7032623, y: 0.7126832}
+  m_Size: {x: 0.96231866, y: 0.8869574}
   m_EdgeRadius: 0

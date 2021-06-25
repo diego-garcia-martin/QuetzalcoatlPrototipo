@@ -26,6 +26,9 @@ public class sc_player : MonoBehaviour
     public bool debugMode;
     private float xspeed;
     private bool sliding;
+    private float pushTimer = 0.3f;
+    private bool pushState = false;
+    private string pushDirection = "left";
 
     void Start()
     {
@@ -79,20 +82,12 @@ public class sc_player : MonoBehaviour
         }
 
         //checamos las colisiones con los enemigos
-        if (collision.gameObject.tag == "Enemy")
-        {
-            
-        }
-        if (collision.gameObject.tag == "HurtBox" && health >= 0)
-        {
-            if(tr.transform.position.x > collision.gameObject.transform.position.x) collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-5, 0));
-            else collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(5, 0));
-        }
-        if (collision.gameObject.tag == "HitBox")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "HitBox")
         {
             health -= 1;
-            if (tr.transform.position.x > collision.gameObject.transform.position.x) r2d.AddForce(new Vector2(5, 0));
-            else r2d.AddForce(new Vector2(-5, 0));
+            pushState = true;
+            if (collision.gameObject.transform.position.x < tr.position.x) pushDirection = "right";
+            else if (collision.gameObject.transform.position.x >= tr.position.x) pushDirection = "left";
         }
     }
 
@@ -103,8 +98,8 @@ public class sc_player : MonoBehaviour
             if(r2d.velocity.x != 0)
             {
                 changeAnimation(RUN);
-                if(r2d.velocity.x < 0) tr.localScale = new Vector3(1, 1, 1);
-                else tr.localScale = new Vector3(-1, 1, 1);
+                if(r2d.velocity.x < 0 && !pushState) tr.localScale = new Vector3(1, 1, 1);
+                else if (!pushState) tr.localScale = new Vector3(-1, 1, 1);
             }
             else changeAnimation(IDLE);
         }
@@ -118,26 +113,51 @@ public class sc_player : MonoBehaviour
         {
             touchEnable = true;
         }
-        
-        if((Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && touchEnable)) && jumping < maxJumps)
+
+        if (pushState)
         {
-            r2d.velocity = new Vector2( r2d.velocity.x, jumpForce);
-            jumping++;
-            changeAnimation(JUMP);
-            grounded = false;
-            touchEnable = false;
-            sliding = false;
-            sc_audioManager.PlaySound("jump");
+            if (pushTimer > 0)
+            {
+                pushTimer -= Time.deltaTime;
+                if (pushDirection == "left")
+                {
+                    r2d.velocity = new Vector2(-moveSpeed * 1.5f, r2d.velocity.y);
+                }
+                else
+                {
+                    r2d.velocity = new Vector2(moveSpeed * 1.5f, r2d.velocity.y);
+                }
+            }
+            else
+            {
+                xspeed = (sliding || !grounded) ? xspeed + (dirx * Time.deltaTime) : 0;
+                r2d.velocity = new Vector2(xspeed, r2d.velocity.y);
+                pushTimer = 0.3f;
+                pushState = false;
+            }
         }
+        else
+        {
+            if((Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && touchEnable)) && jumping < maxJumps)
+            {
+                r2d.velocity = new Vector2( r2d.velocity.x, jumpForce);
+                jumping++;
+                changeAnimation(JUMP);
+                grounded = false;
+                touchEnable = false;
+                sliding = false;
+                sc_audioManager.PlaySound("jump");
+            }
 
-        dirx = Input.acceleration.x * moveSpeed * TOUCHMOVEADJUST;
+            dirx = Input.acceleration.x * moveSpeed * TOUCHMOVEADJUST;
 
-        if(Input.GetKey(KeyCode.LeftArrow)) dirx = -moveSpeed;
-        if(Input.GetKey(KeyCode.RightArrow)) dirx = moveSpeed;
+            if(Input.GetKey(KeyCode.LeftArrow)) dirx = -moveSpeed;
+            if(Input.GetKey(KeyCode.RightArrow)) dirx = moveSpeed;
 
-        xspeed = (sliding || !grounded) ? xspeed + (dirx * Time.deltaTime) : dirx;
+            xspeed = (sliding || !grounded) ? xspeed + (dirx * Time.deltaTime) : dirx;
 
-        r2d.velocity = new Vector2(xspeed, r2d.velocity.y);
+            r2d.velocity = new Vector2(xspeed, r2d.velocity.y);
+        }
     }
 
     private void changeAnimation(string newAnim)
