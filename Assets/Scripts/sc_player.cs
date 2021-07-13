@@ -88,6 +88,7 @@ public class sc_player : MonoBehaviour
             pushState = true;
             if (collision.gameObject.transform.position.x < tr.position.x) pushDirection = "right";
             else if (collision.gameObject.transform.position.x >= tr.position.x) pushDirection = "left";
+            sc_audioManager.PlaySound("hit");
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class sc_audioManager : MonoBehaviour
 {
-    public static AudioClip jump1, jump2, jump3, pichonAleteo, aguilaAleteo, spiderWalk, spiderAttack;
+    public static AudioClip jump1, jump2, jump3, pichonAleteo, aguilaAleteo, spiderWalk, spiderAttack, hit;
     static AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +17,7 @@ public class sc_audioManager : MonoBehaviour
         aguilaAleteo = Resources.Load<AudioClip>("SFX/aleteoAguila");
         spiderWalk = Resources.Load<AudioClip>("SFX/InsectWalk");
         spiderAttack = Resources.Load<AudioClip>("SFX/spiderAttack");
+        hit = Resources.Load<AudioClip>("SFX/Hit");
     }
 
     // Update is called once per frame
@@ -55,6 +56,9 @@ public class sc_audioManager : MonoBehaviour
                 break;
             case "spiderAttack":
                 audioSource.PlayOneShot(spiderAttack, 0.5f);
+                break;
+            case "hit":
+                audioSource.PlayOneShot(hit, 0.5f);
                 break;
         }
     }

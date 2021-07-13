@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //Puntuaciones
 //Pantallas
 
 public class GameManager : MonoBehaviour
 {
+    public static float score;
     public enum _gameStates{
         START,
         PLAY,
@@ -17,7 +19,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameState = _gameStates.START;
+        GameState = _gameStates.PLAY;
+        score = 0;
     }
 
     // Update is called once per frame
@@ -32,15 +35,21 @@ public class GameManager : MonoBehaviour
         
     }
 
+    void FixedUpdate()
+    {
+        score += Time.deltaTime;
+    }
+
     void StateChange()
     {
         switch(GameState)
         {
             case _gameStates.GAMEOVER:
+                PlayerPrefs.SetInt("score", (int)score);
+                SceneManager.LoadScene("GameOver");
                 break;
             case _gameStates.START:
-                break;
-            case _gameStates.PLAY:
+                SceneManager.LoadScene("Init");
                 break;
         }
     }
