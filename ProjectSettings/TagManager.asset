@@ -10,6 +10,7 @@ TagManager:
   - EnemySpawner
   - HitBox
   - HurtBox
+  - GameManager
   layers:
   - Default
   - TransparentFX

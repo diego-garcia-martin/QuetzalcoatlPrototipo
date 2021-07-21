@@ -91,6 +91,7 @@ public class sc_pichoncin : MonoBehaviour
         if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Ice")
         {
             isGrounded = true;
+            if (r2d != null)
             r2d.velocity = new Vector2(0, 0);
             changeAnimation(IDLE);
         }
@@ -99,6 +100,7 @@ public class sc_pichoncin : MonoBehaviour
     private void changeAnimation(string newAnim)
     {
         if (currentAnim == newAnim) return;
+        if (animator != null)
         animator.Play(newAnim);
         currentAnim = newAnim;
     }

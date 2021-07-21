@@ -340,11 +340,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e380060bfbc6cb4aaf0251577bb472b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollSpeed: 0.7
   transitionObj: {fileID: 134969934}
   bg2: {fileID: 2053501391}
   bg3: {fileID: 255424599}
-  transition: 0
-  scrollSpeed: 0.7
+  transition1: {fileID: -5598528465793649450, guid: 1ac1f7ffbdabe49498b3e39669dbd999,
+    type: 3}
+  transition2: {fileID: 2883693527695055503, guid: 1ac1f7ffbdabe49498b3e39669dbd999,
+    type: 3}
+  transition3: {fileID: 4259028117779839271, guid: 1ac1f7ffbdabe49498b3e39669dbd999,
+    type: 3}
+  transition4: {fileID: -7295967715622645798, guid: 1ac1f7ffbdabe49498b3e39669dbd999,
+    type: 3}
+  stage1_1: {fileID: -6458459897247648070, guid: 1ac1f7ffbdabe49498b3e39669dbd999,
+    type: 3}
+  stage1_2: {fileID: -1170150365675857375, guid: 1ac1f7ffbdabe49498b3e39669dbd999,
+    type: 3}
+  stage2_1: {fileID: 3861593513763831353, guid: 1ac1f7ffbdabe49498b3e39669dbd999,
+    type: 3}
+  stage2_2: {fileID: 3861593513763831353, guid: 1ac1f7ffbdabe49498b3e39669dbd999,
+    type: 3}
+  stage3_1: {fileID: 2034407504522258305, guid: 1ac1f7ffbdabe49498b3e39669dbd999,
+    type: 3}
+  stage3_2: {fileID: 2034407504522258305, guid: 1ac1f7ffbdabe49498b3e39669dbd999,
+    type: 3}
+  stage4_1: {fileID: -8526773028690331283, guid: 1ac1f7ffbdabe49498b3e39669dbd999,
+    type: 3}
+  stage4_2: {fileID: -8526773028690331283, guid: 1ac1f7ffbdabe49498b3e39669dbd999,
+    type: 3}
 --- !u!1001 &793518212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -840,7 +863,7 @@ GameObject:
   - component: {fileID: 1007314342}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1013,6 +1036,11 @@ PrefabInstance:
         type: 3}
       propertyPath: MAXSPEED
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088957232428360604, guid: f697014f55deb3449b5ace98f0d0a539,
+        type: 3}
+      propertyPath: debugMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3088957232428360604, guid: f697014f55deb3449b5ace98f0d0a539,
         type: 3}

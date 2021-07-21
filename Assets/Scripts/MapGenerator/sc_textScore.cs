@@ -17,6 +17,6 @@ public class sc_textScore : MonoBehaviour
     {
         int scoreNum = (int)GameManager.score;
         string score = scoreNum.ToString();
-        scoreText.text = score;
+        scoreText.text = score + "pts";
     }
 }

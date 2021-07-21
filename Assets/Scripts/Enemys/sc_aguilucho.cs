@@ -70,7 +70,6 @@ public class sc_aguilucho : MonoBehaviour
         {
             attack();
         }
-        //Debug.Log("Target: " + target.position);
     }
 
     private void idleFollow()
@@ -112,15 +111,13 @@ public class sc_aguilucho : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         changeAnimation(IDLE);
-        if (collision.gameObject.tag == "Player")
-        {
-            lifetime = 0;
-        }
+        lifetime = 0;
     }
 
     private void changeAnimation(string newAnim)
     {
         if (currentAnim == newAnim) return;
+        if (animator != null)
         animator.Play(newAnim);
         currentAnim = newAnim;
     }

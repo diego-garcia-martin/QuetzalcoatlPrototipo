@@ -10,7 +10,7 @@ public class sc_GameOverScore : MonoBehaviour
     {
         scoreText = GetComponent<Text>();
         int score = PlayerPrefs.GetInt("score");
-        string scoreMessage = "You survived " + score.ToString() + " seconds!";
+        string scoreMessage = "You got " + score.ToString() + " points!";
         scoreText.text = scoreMessage;
     }
 

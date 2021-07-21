@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flightSpeed: 2
   attackSpeed: 4
-  lifetime: 10
+  lifetime: 8
 --- !u!50 &5290977618967871571
 Rigidbody2D:
   serializedVersion: 4

@@ -4,48 +4,72 @@ using UnityEngine;
 
 public class sc_background_scroll : MonoBehaviour
 {
-    public GameObject transitionObj;
-    public GameObject bg2;
-    public GameObject bg3;
-    public bool transition = false;
+    private bool transition;
     public float scrollSpeed = 1;
     private List<GameObject> bgs;
+    public GameObject bg2;
+    public GameObject bg3;
+
+
+    // Sprites
+    public Sprite transition1;
+    public Sprite transition2;
+    public Sprite transition3;
+    public Sprite transition4;
+    public Sprite stage1_1;
+    public Sprite stage1_2;
+    public Sprite stage2_1;
+    public Sprite stage2_2;
+    public Sprite stage3_1;
+    public Sprite stage3_2;
+    public Sprite stage4_1;
+    public Sprite stage4_2;
+
     // Start is called before the first frame update
     void Start()
     {
         bgs = new List<GameObject>();
         bgs.Add(bg2);
         bgs.Add(bg3);
-        transition = false;
-        transitionObj.transform.position = new Vector3(0, 0, 0);
-        bg2.transform.position = new Vector3(0, 12, 0);
-        bg3.transform.position = new Vector3(0, 24, 0);
+        Set_Objects(1);
     }
+
+    void Set_Objects(int stage)
+    {
+        transition = true;
+        if (stage == 1)
+        {
+            bg2.GetComponent<SpriteRenderer>().sprite = stage1_1;
+            bg3.GetComponent<SpriteRenderer>().sprite = stage1_2;
+        }
+        if (stage == 2)
+        {
+            bg2.GetComponent<SpriteRenderer>().sprite = stage2_1;
+            bg3.GetComponent<SpriteRenderer>().sprite = stage2_2;
+        }
+        if (stage == 3)
+        {
+            bg2.GetComponent<SpriteRenderer>().sprite = stage3_1;
+            bg3.GetComponent<SpriteRenderer>().sprite = stage3_2;
+        }
+        if (stage == 4)
+        {
+            bg2.GetComponent<SpriteRenderer>().sprite = stage4_1;
+            bg3.GetComponent<SpriteRenderer>().sprite = stage4_2;
+        }
+
+}
 
     // Update is called once per frame
     void Update()
     {
-        if (transition)
-        {
-            transitionObj.transform.position = new Vector3(0, 0, 0);
-            bg2.transform.position = new Vector3(0, 12, 0);
-            bg3.transform.position = new Vector3(0, 24, 0);
-        }
-        if (transitionObj.transform.position.y > -12)
-        {
-            transitionObj.transform.position = new Vector3(0, transitionObj.transform.position.y - (scrollSpeed * Time.deltaTime), 0);
-        }
-        else
-        {
-            transition = false;
-        }
-
         foreach (GameObject obj in bgs)
         {
             obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y - (scrollSpeed * Time.deltaTime), 0);
             if (obj.transform.position.y <= -12)
             {
-                obj.transform.position = new Vector3(obj.transform.position.x, 12, 0);
+                obj.transform.position = new Vector3(obj.transform.position.x, 24, 0);
+
             }
         }  
     }
