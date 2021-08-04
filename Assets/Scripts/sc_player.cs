@@ -49,6 +49,7 @@ public class sc_player : MonoBehaviour
     void Update()
     {
         //Esto es para pruebas, si se sale de la pantalla el mono que vuelva a entrar y mostrar las velocidades y valores de interes
+        if (debugMode) health = 4;
         if(debugMode && tr.position.y < OUTOFBOUNDS){
             //debugInfo();
             tr.SetPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);

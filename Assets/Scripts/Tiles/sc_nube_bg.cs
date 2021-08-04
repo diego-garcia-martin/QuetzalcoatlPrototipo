@@ -13,6 +13,6 @@ public class sc_nube_bg : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = new Vector3(transform.position.x - sp, transform.position.y, 0);
+        transform.position = new Vector3(transform.position.x - sp, transform.position.y - sp/2, 0);
     }
 }

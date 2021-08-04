@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class sc_background_scroll : MonoBehaviour
 {
-    private bool transition;
+    private bool transition_begin;
+    private bool transition_ongoing;
+    private int level;
     public float scrollSpeed = 1;
+    public int levelChange;
     private List<GameObject> bgs;
+    public GameObject bg1;
     public GameObject bg2;
-    public GameObject bg3;
 
 
     // Sprites
@@ -29,46 +32,99 @@ public class sc_background_scroll : MonoBehaviour
     void Start()
     {
         bgs = new List<GameObject>();
+        bgs.Add(bg1);
         bgs.Add(bg2);
-        bgs.Add(bg3);
-        Set_Objects(1);
+        bg1.GetComponent<SpriteRenderer>().sprite = transition1;
+        bg2.GetComponent<SpriteRenderer>().sprite = stage1_2;
+        bg1.transform.position = new Vector3(0, 0, 0);
+        bg2.transform.position = new Vector3(0, 12, 0);
+        transition_begin = false;
+        transition_ongoing = false;
+        SetLevel(1);
     }
 
-    void Set_Objects(int stage)
+    public void SetLevel(int new_level)
     {
-        transition = true;
-        if (stage == 1)
+        level = new_level;
+        transition_begin = true;
+        transition_ongoing = true;
+        if (level == 4)
         {
-            bg2.GetComponent<SpriteRenderer>().sprite = stage1_1;
-            bg3.GetComponent<SpriteRenderer>().sprite = stage1_2;
+            GameObject clouds = GameObject.Find("SpawnerNubes");
+            clouds.GetComponent<sc_nubes_spawner>().GenerateClouds = false;
         }
-        if (stage == 2)
-        {
-            bg2.GetComponent<SpriteRenderer>().sprite = stage2_1;
-            bg3.GetComponent<SpriteRenderer>().sprite = stage2_2;
-        }
-        if (stage == 3)
-        {
-            bg2.GetComponent<SpriteRenderer>().sprite = stage3_1;
-            bg3.GetComponent<SpriteRenderer>().sprite = stage3_2;
-        }
-        if (stage == 4)
-        {
-            bg2.GetComponent<SpriteRenderer>().sprite = stage4_1;
-            bg3.GetComponent<SpriteRenderer>().sprite = stage4_2;
-        }
-
-}
+    }
 
     // Update is called once per frame
     void Update()
     {
+        int scoreNum = (int)GameManager.score;
+        if (scoreNum == levelChange) SetLevel(2);
+        else if (scoreNum == levelChange*2) SetLevel(3);
+        else if (scoreNum == levelChange*3) SetLevel(4);
         foreach (GameObject obj in bgs)
         {
             obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y - (scrollSpeed * Time.deltaTime), 0);
             if (obj.transform.position.y <= -12)
             {
-                obj.transform.position = new Vector3(obj.transform.position.x, 24, 0);
+                obj.transform.position = new Vector3(obj.transform.position.x, 12, 0);
+                if (transition_begin && transition_ongoing)
+                {
+                    transition_begin = false;
+                    switch(level){
+                        case 2:
+                            obj.GetComponent<SpriteRenderer>().sprite = transition2;
+                            break;
+                        case 3:
+                            obj.GetComponent<SpriteRenderer>().sprite = transition3;
+                            break;
+                        case 4:
+                            obj.GetComponent<SpriteRenderer>().sprite = transition4;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                else if (!transition_begin && transition_ongoing)
+                {
+                    transition_ongoing = false;
+                    switch(level){
+                        case 2:
+                            obj.GetComponent<SpriteRenderer>().sprite = stage2_1;
+                            break;
+                        case 3:
+                            obj.GetComponent<SpriteRenderer>().sprite = stage3_1;
+                            break;
+                        case 4:
+                            obj.GetComponent<SpriteRenderer>().sprite = stage4_1;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                else if (!transition_begin && !transition_ongoing)
+                {
+                    transition_begin = true;
+                    switch(level){
+                        case 1:
+                            obj.GetComponent<SpriteRenderer>().sprite = stage1_2;
+                            break;
+                        case 2:
+                            obj.GetComponent<SpriteRenderer>().sprite = stage2_2;
+                            break;
+                        case 3:
+                            obj.GetComponent<SpriteRenderer>().sprite = stage3_2;
+                            break;
+                        case 4:
+                            obj.GetComponent<SpriteRenderer>().sprite = stage4_2;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                //Debug.Log("Level: " + level + " Transition_begin: " + transition_begin + " Transition_ongoing: " + transition_ongoing);
 
             }
         }  
