@@ -5,10 +5,13 @@ using UnityEngine;
 public class sc_enemy_spawner : MonoBehaviour
 {
     //Variables para el timer de spawn de enemigos
+    public int enemySet;
     public float spawnTimer;
     private float elapsedTime;
     public GameObject enemy1;
     public GameObject enemy2;
+    public GameObject enemy3;
+    public GameObject enemy4;
     public List<GameObject> l_enemies;
     private const float MIN_POS_IN_Y = -6;
     private const float MAX_POS_IN_Y = 6;
@@ -20,6 +23,7 @@ public class sc_enemy_spawner : MonoBehaviour
     {
         l_enemies = new List<GameObject>();
         elapsedTime = 0;
+        enemySet = 1;
     }
 
     // Update is called once per frame
@@ -29,11 +33,23 @@ public class sc_enemy_spawner : MonoBehaviour
         if (elapsedTime > spawnTimer && l_enemies.Count < MAX_ENEMY_COUNT)
         {
             elapsedTime = 0;
-            l_enemies.Add(Instantiate(enemy1, new Vector3(Random.Range(MIN_POS_IN_X, MAX_POS_IN_X), MAX_POS_IN_Y, 0), Quaternion.identity));
-            if(Random.Range(0,10) < 3)
+            if (enemySet == 1)
             {
-                l_enemies.Add(Instantiate(enemy2, new Vector3(Random.Range(MIN_POS_IN_X, MAX_POS_IN_X), MAX_POS_IN_Y, 0), Quaternion.identity));
+                l_enemies.Add(Instantiate(enemy1, new Vector3(Random.Range(MIN_POS_IN_X, MAX_POS_IN_X), MAX_POS_IN_Y, 0), Quaternion.identity));
+                if(Random.Range(0,10) < 3)
+                {
+                    l_enemies.Add(Instantiate(enemy2, new Vector3(Random.Range(MIN_POS_IN_X, MAX_POS_IN_X), MAX_POS_IN_Y, 0), Quaternion.identity));
+                }
             }
+            else
+            {
+                l_enemies.Add(Instantiate(enemy3, new Vector3(Random.Range(MIN_POS_IN_X, MAX_POS_IN_X), MAX_POS_IN_Y, 0), Quaternion.identity));
+                if(Random.Range(0,10) < 3)
+                {
+                    l_enemies.Add(Instantiate(enemy4, new Vector3(Random.Range(MIN_POS_IN_X, MAX_POS_IN_X), MAX_POS_IN_Y, 0), Quaternion.identity));
+                }
+            }
+            
         }
 
         for(int index = l_enemies.Count -1; index >= 0; index --)

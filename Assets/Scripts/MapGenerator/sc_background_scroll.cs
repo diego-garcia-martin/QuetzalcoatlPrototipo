@@ -52,6 +52,8 @@ public class sc_background_scroll : MonoBehaviour
         {
             GameObject clouds = GameObject.Find("SpawnerNubes");
             clouds.GetComponent<sc_nubes_spawner>().GenerateClouds = false;
+            GameObject enemies = GameObject.Find("EnemySpawner");
+            enemies.GetComponent<sc_enemy_spawner>().enemySet = 2;
         }
     }
 

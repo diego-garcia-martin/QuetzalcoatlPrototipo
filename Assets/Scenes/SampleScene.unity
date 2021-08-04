@@ -569,6 +569,8 @@ MonoBehaviour:
   spawnTimer: 7
   enemy1: {fileID: 6822974493449894603, guid: 782846d6c196a92478f597cef1ee4a28, type: 3}
   enemy2: {fileID: 515417424503200480, guid: d02c92e7490f4fe40b292175c118b3e0, type: 3}
+  enemy3: {fileID: 1073967459624320880, guid: 8feef80bb14f3404b868cbda2049d685, type: 3}
+  enemy4: {fileID: 3398377331236263951, guid: b0da09cc60ae95641bb8a19c0491df1e, type: 3}
   l_enemies: []
   MAX_ENEMY_COUNT: 4
 --- !u!1 &944952254
@@ -1027,7 +1029,7 @@ PrefabInstance:
     - target: {fileID: 3088957232428360604, guid: f697014f55deb3449b5ace98f0d0a539,
         type: 3}
       propertyPath: debugMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3088957232428360604, guid: f697014f55deb3449b5ace98f0d0a539,
         type: 3}
