@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 0.7
-  levelChange: 35
+  levelChange: 56
   bg1: {fileID: 134969934}
   bg2: {fileID: 2053501391}
   transition1: {fileID: -5598528465793649450, guid: 1ac1f7ffbdabe49498b3e39669dbd999,
